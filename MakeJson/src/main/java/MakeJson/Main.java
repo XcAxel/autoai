@@ -154,12 +154,22 @@ public class Main {
 		BufferedWriter orgibw = null;
 		Scanner sc = new Scanner(System.in);
 		sc.useDelimiter("\n");
-		
-		System.out.print("'1' for Normal subject, '2' for ETL test \nPlease Choose Test Subject : ");
-		String type = sc.next();
-		if(type.trim().equals("2") || type.trim() == "2") {
-			System.out.println("######## Processing Starting for ETL mode ########");
+		boolean flagchoose = true;
+		String type = "";
+		while(flagchoose) {
+			System.out.print("'1' for Normal subject, '2' for ETL test \nPlease Choose Test Subject : ");
+			type = sc.next().trim();
+			if(type.equals("1") || type.equals("2") || type == "1" || type == "2") {
+				if(type.equals("2") || type == "2") {
+					System.out.println("######## Processing Starting for ETL mode ########");
+				}
+				flagchoose = false;
+				break;
+			}else {
+				System.out.println("!!!!!!!! Wrong input chooses ,Please input the right number !!!!!!!!");
+			}
 		}
+		
 		if(!Util.checkBank(path+bankname)) {
 			indexflag = 10000;
 		}
@@ -212,7 +222,7 @@ public class Main {
 								System.out.println();
 								System.out.println("######## "+ sheetname + "'s case is finished. ########");
 								System.out.println();
-								if(type.trim().equals("2") || type.trim() == "2") {
+								if(type.equals("2") || type == "2") {
 									System.out.println("Data of " + sheetname + " was stored with path : " +  kafkapath);
 									System.out.print("Please input the topic your want to send : ");
 									topic = sc.next().trim();
@@ -220,7 +230,7 @@ public class Main {
 								}
 							}
 						}
-						if(type.trim().equals("2") || type.trim() == "2") {
+						if(type.equals("2") || type == "2") {
 							if(i != sheetlistsize-1) {
 								System.out.println("Press anykey to countinue start processing next sheet.");	
 								sc.next();
@@ -273,7 +283,7 @@ public class Main {
 								System.out.println();
 								System.out.println("######## "+ sheetname + "'s case is finished. ########");
 								System.out.println();
-								if(type.trim().equals("2") || type.trim() == "2") {
+								if(type.equals("2") || type == "2") {
 //									System.out.println("Press any key to Start sendding "+sheetname+"'s case JSON to kafka.\nType 'Q' to exit and countinue create JSON on next sheet : ");
 									System.out.println("Data of " + sheetname + " was stored with path : " +  kafkapath);
 									System.out.print("Please input the topic your want to send : ");
@@ -282,7 +292,7 @@ public class Main {
 								}
 							}
 						}
-						if(type.trim().equals("2") || type.trim() == "2") {
+						if(type.equals("2") || type == "2") {
 							if(i != sheetlistsize-1) {
 								System.out.println("Press anykey to countinue start processing next sheet.");	
 								sc.next();
