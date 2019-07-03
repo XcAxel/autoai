@@ -117,8 +117,15 @@ public class KafkaProducerClient {
 	 	fw2.close();
 		br.close();
 		producer.close();
-		System.out.println("~~~~~~~~ Sending Completion ~~~~~~~~");
-		System.out.println("Total : " + sum + " JSONs ware Sended");
+		if(flag) {
+			System.out.println("~~~~~~~~ Sending Completion ~~~~~~~~");
+			System.out.println("Total : " + sum + " JSONs ware Sended");
+			System.out.println();
+		 }else {
+			System.out.println("~~~~~~~~ Reading Completion ~~~~~~~~");
+			System.out.println("Total : " + sum + " JSONs ware Readed");
+			System.out.println();
+		 }
 	}
 
 }

@@ -38,15 +38,15 @@ public class Main {
 		String path = "Source/";
 		String casepath = "DataResultFolder/";
 //		用例文件名称
-		String defaultfilename = "DataTestCase.xls";
+		String defaultfilename = "DataTestCase-ETL.xls";
 //		String defaultfilename = "DataTestCase.xlsx";
 //		标准文件
 		String bankname = "bank.txt";
 //		总输出文件写入
 		String origoutputname = "origJson.txt";
 //		Json生成后Kafka处理标称
-		boolean flag = true;
-//		boolean flag = false;
+//		boolean flag = true;
+		boolean flag = false;
 		/**
 		 * Json基本版本
 		 * V1.0表示ETL清洗后的输出标准JSON格式，此格式为后端输入标准格式
@@ -179,7 +179,7 @@ public class Main {
 				if(sheetlistsize == 0) {
 					System.out.println("!!!!!!!! There are no sheets name with '测试用例' in file : "+ filename +" !!!!!!!!" );
 				}else {
-					for(int i = 0;i < sheetlistsize;i++) {
+					for(int i = 0;i < sheetlistsize; i++) {
 						String sheetname = sheetlist.get(i);
 						System.out.println("######## Starting Processing Sheet : "+filename+"\\"+sheetname+ " ########");
 						System.out.println();
@@ -220,7 +220,12 @@ public class Main {
 								}
 							}
 						}
-						
+						if(type.trim().equals("2") || type.trim() == "2") {
+							if(i != sheetlistsize-1) {
+								System.out.println("Press anykey to countinue start processing next sheet.");	
+								sc.next();
+							}
+						}
 					}
 				}
 				System.out.println();
@@ -277,10 +282,17 @@ public class Main {
 								}
 							}
 						}
+						if(type.trim().equals("2") || type.trim() == "2") {
+							if(i != sheetlistsize-1) {
+								System.out.println("Press anykey to countinue start processing next sheet.");	
+								sc.next();
+							}
+						}
 					}
 				}
 				System.out.println();
 				System.out.println("######## All cases ware finished. ########");
+				System.out.println();
 			break;
 			default:
 				System.out.println("!!!!!!!! Input file is missing, Please check !!!!!!!!");
