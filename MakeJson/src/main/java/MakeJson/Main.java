@@ -224,9 +224,15 @@ public class Main {
 								System.out.println();
 								if(type.equals("2") || type == "2") {
 									System.out.println("Data of " + sheetname + " was stored with path : " +  kafkapath);
-									System.out.print("Please input the topic your want to send : ");
-									topic = sc.next().trim();
-									KafkaMethod.kafkaProducerMethod(kafkapath,sheetname,topic,server,flag);
+									System.out.println("Type Q to use default topic '"+topic+"' or input the new topic that you want to send : ");
+									String input = sc.next().trim();
+									if(input.toLowerCase().equals("q") || input.toLowerCase() == "q") {
+										System.out.println("Sending data to "+topic);
+										KafkaMethod.kafkaProducerMethod(kafkapath,sheetname,topic,server,flag);										
+									}else {
+										System.out.println("Sending data to "+input);
+										KafkaMethod.kafkaProducerMethod(kafkapath,sheetname,input,server,flag);
+									}
 								}
 							}
 						}
