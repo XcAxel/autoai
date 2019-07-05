@@ -38,15 +38,15 @@ public class Main {
 		String path = "Source/";
 		String casepath = "DataResultFolder/";
 //		用例文件名称
-		String defaultfilename = "DataTestCase-ETL.xls";
+		String defaultfilename = "DataTestCase-Nomal.xls";
 //		String defaultfilename = "DataTestCase.xlsx";
 //		标准文件
 		String bankname = "bank.txt";
 //		总输出文件写入
 		String origoutputname = "origJson.txt";
 //		Json生成后Kafka处理标称
-//		boolean flag = true;
-		boolean flag = false;
+		boolean flag = true;
+//		boolean flag = false;
 		/**
 		 * Json基本版本
 		 * V1.0表示ETL清洗后的输出标准JSON格式，此格式为后端输入标准格式

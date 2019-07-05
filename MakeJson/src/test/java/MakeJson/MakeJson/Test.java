@@ -2,7 +2,6 @@ package MakeJson.MakeJson;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import net.sf.json.JSONArray;
 
 public class Test {

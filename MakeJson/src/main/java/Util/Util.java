@@ -1938,8 +1938,12 @@ public class Util {
 				String[] tmp = s.split("=");
 				if(tmp.length == 2) {
 					map.put(tmp[0], tmp[1]);
-				}else if(tmp.length ==1) {
-					map.put(tmp[0], "DefaultVal");
+				}else if(tmp.length == 1) {
+					if(tmp[0].equals("session_id") || tmp[0] == "session_id") {
+						map.put(tmp[0], "");
+					}else {
+						map.put(tmp[0], "DefaultVal");
+					}
 				}
 			}
 			s = br.readLine();
@@ -2793,7 +2797,7 @@ public class Util {
 //		System.out.println(list.toString());
 		File[] tmp = file.listFiles();
 		for (int i = 0; i < tmp.length;i++){
-			if(tmp[i].length() > 0) {
+			if(tmp[i].isFile() || tmp[i].length() > 0) {
 				list.add(tmp[i].getName());
 			}
 		}
