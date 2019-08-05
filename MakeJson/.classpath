@@ -46,5 +46,9 @@
 	<classpathentry kind="lib" path="E:/Code/MakeJson/Jar/poi-scratchpad-3.8-20120326.jar"/>
 	<classpathentry kind="lib" path="E:/Code/MakeJson/Jar/stax-api-1.0.1.jar"/>
 	<classpathentry kind="lib" path="E:/Code/MakeJson/Jar/xmlbeans-2.3.0.jar"/>
+	<classpathentry kind="lib" path="E:/Code/MakeJson/Jar/pbParser-1.0-SNAPSHOT.jar"/>
+	<classpathentry kind="lib" path="E:/Code/MakeJson/Jar/protobuf-java-3.6.1.jar"/>
+	<classpathentry kind="lib" path="E:/Code/MakeJson/Jar/protobuf-java-format-1.2.jar"/>
+	<classpathentry kind="lib" path="E:/Code/MakeJson/Jar/fastjson-1.2.6.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

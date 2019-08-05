@@ -1,5 +1,9 @@
 package MakeJson;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -8,37 +12,26 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 public class Test {
-	public static void main(String[] args) {
-		Map<String, String> map = new HashMap<String, String>();
-		ArrayList<Map<String, String>> list = new ArrayList<Map<String,String>>();
-		
-		map.put("111", "222");
-		map.put("333", "444");
-		list.add(map);
-		JSONArray jsonlist=JSONArray.fromObject(list);
-		JSONObject jsonmap = JSONObject.fromObject(map);
-		System.out.println(jsonlist.toString());
-		System.out.println("aaaa");
-		System.out.println(jsonmap.toString());
-		
-		String tmp = "device_id=iugswfi，hqwoigf，iwuhfsoiqw，shigdew；app_id=iwiuhf；vin=a64646";
-		if(tmp.contains("；")) {
-			String t1 = tmp.replace("；", ";");
-			System.out.println(tmp);
-			System.out.println(t1);
+	public static void main(String[] args) throws Exception {
+		String path = "Source/";
+		String basepath = "Baseinfo/";
+		String basename = basepath +"baseinfo.txt";
+		String[] tmp = {};
+		File f = new File(path+basename);
+		FileReader fr = new FileReader(f);
+		BufferedReader br = new BufferedReader(fr);
+		String s = br.readLine();
+		while(s != null) {
+			System.out.println(s);
+			s = br.readLine();
+//			if(s!=null && s.contains("portrait1=")) {
+//				tmp = s.split(",");
+//			}
 		}
-		if(tmp.contains("，")) {
-			System.out.println("#######################");
-			String t1 = tmp.replace("#", "&");
-			System.out.println(tmp);
-			System.out.println(t1);
-			System.out.println("#######################");
-		}
-		String[] sp1 = tmp.split(";");
-		System.out.println("Len = "+sp1.length);
-		System.out.println(sp1[0]);
 		
-
+//		for(String stm : tmp) {
+//			System.out.println(stm);
+//		}
 	}
 
 }

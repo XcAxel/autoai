@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import java.util.Set;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.util.SystemOutLogger;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import net.sf.json.JSONArray;
@@ -111,7 +113,7 @@ public class Util {
 			Map<String, String> defaultmap,Map<String, String> exchangemap,String[] envstr145,String[] envstr100,
 			String[] gpsstr145,String[] gpsstr100,String[] pagestr145,String[] pagestr100,String[] errstr100,String[] Jbasev,
 			String isjumpname,int isjumpnamenum,String isjumpval,String tmpisjumpval,String[] actor,
-			String[] decice,String[] envtsp,String[] evttsp) 
+			String[] decice,String[] envtsp,String[] evttsp,String[] portrait1,String[] portrait2) 
 					throws Exception {
 		frownum = positionmap.get("frownum");
 		erownum = positionmap.get("erownum");
@@ -134,13 +136,20 @@ public class Util {
 //		首次建立文件夹
 		String newdirpath = path+casepath+sheetname+"/";
 		String newpath = newdirpath+funcnameval+"_"+testpointval+"_"+Jversionval+".txt";
-		System.out.println("Data file was created complete and save path is : "+newpath);
-		System.out.println();
-//		
+//		String chkpath = Util.checkFileNname(newpath);
+//		System.out.println("======="+chkpath+"=======");
+//		if(chkpath != "null") {
+//			System.out.println("========in========");
+//			newpath = chkpath;
+//		}
+////		
+//		System.out.println("======="+newpath+"=======");
 		FileWriter tmpfw = null;
 		BufferedWriter tmpbw = null;
 		Util.FileInitializeDir(newdirpath);
 		Util.FileInitialize(newpath);
+		System.out.println("Data file was created complete and save path is : "+newpath);
+		System.out.println();
 		tmpfw = new FileWriter(newpath);
 		tmpbw = new BufferedWriter(tmpfw);
 //		Bank初始化
@@ -243,13 +252,13 @@ public class Util {
 //											造串入口，返回一个串
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
-												orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 												orgibw.flush();
 												orgibw.newLine();
-												tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+												tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 												tmpbw.flush();
 												tmpbw.newLine();
 //												System.out.println("Util : "+exchangemap.get("app_start_ts"));	
@@ -272,13 +281,13 @@ public class Util {
 
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //										复制写
 										for(int l = 0; l <= copytimesval; l++) {
-											orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
 											orgibw.newLine();
-											tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+											tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											tmpbw.flush();
 											tmpbw.newLine();
 											
@@ -311,13 +320,13 @@ public class Util {
 //											System.out.println("Copy trd JV: "+tmpJversionval);
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, 
 													gpsstr100, pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, 
-													tmptestpointval, tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+													tmptestpointval, tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
-												orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 												orgibw.flush();
 												orgibw.newLine();
-												tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+												tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 												tmpbw.flush();
 												tmpbw.newLine();
 												
@@ -350,13 +359,13 @@ public class Util {
 //									System.out.println("Copy fos JV: "+tmpJversionval);
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //									复制写
 									for(int l = 0; l <= copytimesval; l++) {
-										orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										orgibw.flush();
 										orgibw.newLine();
-										tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+										tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										tmpbw.flush();
 										tmpbw.newLine();
 										
@@ -436,12 +445,12 @@ public class Util {
 //											System.out.println("UnCopy st JV: "+tmpJversionval);
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //											写一次
-											orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
 											orgibw.newLine();
-											tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+											tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											tmpbw.flush();
 											tmpbw.newLine();
 										}
@@ -462,12 +471,12 @@ public class Util {
 //										System.out.println("UnCopy sec JV: "+tmpJversionval);
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //										写一次
-										orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										orgibw.flush();
 										orgibw.newLine();
-										tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+										tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										tmpbw.flush();
 										tmpbw.newLine();
 									}else {
@@ -498,12 +507,12 @@ public class Util {
 //											System.out.println("UnCopy trd JV: "+tmpJversionval);
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, 
 													gpsstr100, pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, 
-													tmptestpointval, tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+													tmptestpointval, tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //											写一次
-											orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
 											orgibw.newLine();
-											tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+											tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											tmpbw.flush();
 											tmpbw.newLine();
 										}
@@ -534,12 +543,12 @@ public class Util {
 //									System.out.println("UnCopy fos JV: "+tmpJversionval);
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //									写一次
-									orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+									orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 									orgibw.flush();
 									orgibw.newLine();
-									tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+									tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 									tmpbw.flush();
 									tmpbw.newLine();
 								}else {
@@ -576,9 +585,19 @@ public class Util {
 //					System.out.println("Else Func in "+tmpisjumpval);
 					newdirpath = path+casepath+sheetname+"/";
 					newpath = newdirpath+tmpfuncval+"_"+tmptestpointval+"_"+tmpJversionval+".txt";
+					
+					String chkpath = Util.checkFileNname(newpath);
+//					System.out.println("======="+chkpath+"=======");
+					if(chkpath != "null") {
+//						System.out.println("========in========");
+						newpath = chkpath;
+					}
+//					
+//					System.out.println("======="+newpath+"=======");
+					Util.FileInitializeDir(newdirpath);
+					Util.FileInitialize(newpath);
 					System.out.println("Data file was created complete and save path is : "+newpath);
 					System.out.println();
-					Util.FileInitializeDir(newdirpath);
 					tmpfw = new FileWriter(newpath);
 					tmpbw = new BufferedWriter(tmpfw);
 					if(iscopyval.toLowerCase().equals("y") || iscopyval.toLowerCase() == "y") {
@@ -638,13 +657,13 @@ public class Util {
 //											System.out.println("funcp st JV: "+tmpJversionval);
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
-												orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 												orgibw.flush();
 												orgibw.newLine();
-												tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+												tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 												tmpbw.flush();
 												tmpbw.newLine();
 												
@@ -668,13 +687,13 @@ public class Util {
 //										System.out.println("funcp sec JV: "+tmpJversionval);
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //										复制写
 										for(int l = 0; l <= copytimesval; l++) {
-											orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
 											orgibw.newLine();
-											tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+											tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											tmpbw.flush();
 											tmpbw.newLine();
 											
@@ -706,13 +725,13 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
-												orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 												orgibw.flush();
 												orgibw.newLine();
-												tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+												tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 												tmpbw.flush();
 												tmpbw.newLine();
 												
@@ -744,13 +763,13 @@ public class Util {
 //									System.out.println("funcp fos JV: "+tmpJversionval);
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //									复制写
 									for(int l = 0; l <= copytimesval; l++) {
-										orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										orgibw.flush();
 										orgibw.newLine();
-										tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+										tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										tmpbw.flush();
 										tmpbw.newLine();
 									}
@@ -828,12 +847,12 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //											写一次
-											orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
 											orgibw.newLine();
-											tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+											tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											tmpbw.flush();
 											tmpbw.newLine();
 										}
@@ -855,12 +874,12 @@ public class Util {
 //										System.out.println("fununcp sec JV: "+tmpJversionval);
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //										写一次
-										orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										orgibw.flush();
 										orgibw.newLine();
-										tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+										tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										tmpbw.flush();
 										tmpbw.newLine();
 									}else {
@@ -891,12 +910,12 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //											写一次
-											orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
 											orgibw.newLine();
-											tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+											tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											tmpbw.flush();
 											tmpbw.newLine();
 										}
@@ -926,12 +945,12 @@ public class Util {
 //									System.out.println("fununcp fos JV: "+tmpJversionval);
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //									写一次
-									orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+									orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 									orgibw.flush();
 									orgibw.newLine();
-									tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+									tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 									tmpbw.flush();
 									tmpbw.newLine();
 								}else {
@@ -1055,7 +1074,7 @@ public class Util {
 			Map<String, String> defaultmap,Map<String, String> exchangemap,String[] envstr145,String[] envstr100,
 			String[] gpsstr145,String[] gpsstr100,String[] pagestr145,String[] pagestr100,String[] errstr100,String[] Jbasev,
 			String isjumpname,int isjumpnamenum,String isjumpval,String tmpisjumpval,String[] actor,
-			String[] decice,String[] envtsp,String[] evttsp) throws Exception {
+			String[] decice,String[] envtsp,String[] evttsp,String[] portrait1,String[] portrait2) throws Exception {
 		frownum = positionmap.get("frownum");
 		erownum = positionmap.get("erownum");
 		funcnamenumnum = positionmap.get(funcname);
@@ -1180,13 +1199,13 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
-												orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 												orgibw.flush();
 												orgibw.newLine();
-												tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+												tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 												tmpbw.flush();
 												tmpbw.newLine();
 												
@@ -1208,13 +1227,13 @@ public class Util {
 //										造串入口，返回一个串
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //										复制写
 										for(int l = 0; l <= copytimesval; l++) {
-											orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
 											orgibw.newLine();
-											tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+											tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											tmpbw.flush();
 											tmpbw.newLine();
 											
@@ -1248,13 +1267,13 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
-												orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 												orgibw.flush();
 												orgibw.newLine();
-												tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+												tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 												tmpbw.flush();
 												tmpbw.newLine();
 												
@@ -1286,13 +1305,13 @@ public class Util {
 //									造串入口，返回一个串
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //									复制写
 									for(int l = 0; l <= copytimesval; l++) {
-										orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										orgibw.flush();
 										orgibw.newLine();
-										tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+										tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										tmpbw.flush();
 										tmpbw.newLine();
 										
@@ -1373,12 +1392,12 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //											写一次
-											orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
 											orgibw.newLine();
-											tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+											tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											tmpbw.flush();
 											tmpbw.newLine();
 										}
@@ -1388,12 +1407,12 @@ public class Util {
 
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //										写一次
-										orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										orgibw.flush();
 										orgibw.newLine();
-										tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+										tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										tmpbw.flush();
 										tmpbw.newLine();
 									}
@@ -1422,12 +1441,12 @@ public class Util {
 //											造串入口，返回一个串
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //											写一次
-											orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
 											orgibw.newLine();
-											tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+											tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											tmpbw.flush();
 											tmpbw.newLine();
 										}
@@ -1456,12 +1475,12 @@ public class Util {
 //									造串入口，返回一个串
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //									写一次
-									orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+									orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 									orgibw.flush();
 									orgibw.newLine();
-									tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+									tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 									tmpbw.flush();
 									tmpbw.newLine();
 								}else {
@@ -1492,9 +1511,18 @@ public class Util {
 					tmpfw.close();
 					newdirpath = path+casepath+sheetname+"/";
 					newpath = newdirpath+tmpfuncval+"_"+tmptestpointval+"_"+tmpJversionval+".txt";
+					String chkpath = Util.checkFileNname(newpath);
+//					System.out.println("======="+chkpath+"=======");
+					if(chkpath != "null") {
+//						System.out.println("========in========");
+						newpath = chkpath;
+					}
+//					
+//					System.out.println("======="+newpath+"=======");
+					Util.FileInitializeDir(newdirpath);
+					Util.FileInitialize(newpath);
 					System.out.println("Data file was created complete and save path is : "+newpath);
 					System.out.println();
-					Util.FileInitializeDir(newdirpath);
 					tmpfw = new FileWriter(newpath);
 					tmpbw = new BufferedWriter(tmpfw);
 					if(iscopyval.toLowerCase().equals("y") || iscopyval.toLowerCase() == "y") {
@@ -1554,13 +1582,13 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
-												orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 												orgibw.flush();
 												orgibw.newLine();
-												tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+												tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 												tmpbw.flush();
 												tmpbw.newLine();
 												
@@ -1572,13 +1600,13 @@ public class Util {
 
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //										复制写
 										for(int l = 0; l <= copytimesval; l++) {
-											orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
 											orgibw.newLine();
-											tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+											tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											tmpbw.flush();
 											tmpbw.newLine();
 											
@@ -1610,13 +1638,13 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
-												orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 												orgibw.flush();
 												orgibw.newLine();
-												tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+												tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 												tmpbw.flush();
 												tmpbw.newLine();
 												
@@ -1647,13 +1675,13 @@ public class Util {
 //									造串入口，返回一个串
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //									复制写
 									for(int l = 0; l <= copytimesval; l++) {
-										orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										orgibw.flush();
 										orgibw.newLine();
-										tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+										tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										tmpbw.flush();
 										tmpbw.newLine();
 										
@@ -1732,12 +1760,12 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //											写一次
-											orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
 											orgibw.newLine();
-											tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+											tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											tmpbw.flush();
 											tmpbw.newLine();
 										}
@@ -1747,12 +1775,12 @@ public class Util {
 
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //										写一次
-										orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										orgibw.flush();
 										orgibw.newLine();
-										tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+										tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										tmpbw.flush();
 										tmpbw.newLine();
 									}
@@ -1782,12 +1810,12 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //											写一次
-											orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
 											orgibw.newLine();
-											tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+											tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											tmpbw.flush();
 											tmpbw.newLine();
 										}
@@ -1816,12 +1844,12 @@ public class Util {
 //									造串入口，返回一个串
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
 //									写一次
-									orgibw.write(exchangemap.get("device_id") + "=" + jstr);
+									orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 									orgibw.flush();
 									orgibw.newLine();
-									tmpbw.write(exchangemap.get("device_id") + "=" + jstr);
+									tmpbw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 									tmpbw.flush();
 									tmpbw.newLine();
 								}else {
@@ -1874,11 +1902,24 @@ public class Util {
 	public static void FileInitialize(String path) throws Exception{
 		File f = new File(path);
 		if(f.exists()){
+//			String newfilepath = path.replace(".txt", "copy.txt");
+//			File newf = new File(newfilepath);
+//			newf.createNewFile();
 			f.delete();
 			f.createNewFile();
 		}else{
 			f.createNewFile();
 		}
+	}
+	
+//	判断文件名是否重复
+	public static String checkFileNname(String path) {
+		String newP = "null";
+		File oldf = new File(path);
+		if(oldf.exists()) {
+			newP = path.replace(".txt", "copy.txt");
+		}
+		return newP;
 	}
 	
 //	文件夹初始化
@@ -1893,10 +1934,12 @@ public class Util {
 	public static void cleanDRF(String path) {
 		List<String> list = new ArrayList<String>();
 		File f = new File(path);
-		list = Util.getFileName(f);
+		list = Util.getFolderName(f);
 		for(int i = 0; i< list.size(); i++) {
 			File tmpf = new File(path+list.get(i));
+//			System.out.println(tmpf);
 			if(tmpf.isDirectory()) {
+//				System.out.println(tmpf);
 				Util.deleteFiles(tmpf);
 				tmpf.delete();
 			}
@@ -1919,6 +1962,7 @@ public class Util {
 		File f = new File(path);
 		if(!f.exists()){
 			f.mkdir();
+			System.out.println("!!!!!!!! Kafka Folder does not exists !!!!!!!!");
 		}
 	}
 	
@@ -1984,7 +2028,8 @@ public class Util {
 		map.put("contact_begin_time", startts+"");
 		map.put("contact_end_time", stopts+"");
 		map.put("data_gen_time", startts+"");
-		map.put("uuid", "15589347789865548352565467532641");
+//		map.put("uuid", "15589347789865548352565467532641");
+		map.put("reportTime", startts+"");
 //		"data_id": "取值及格式： VIN(17)#DeviceID(32)#UserID(32)#UUID(32)
 		String data_id = map.get("vin")+"#"+map.get("device_id")+"#"+map.get("user_id")+"#"+map.get("uuid");
 		map.put("data_id", data_id);
@@ -2039,7 +2084,7 @@ public class Util {
 				type = 4;
 			}
 			if(Jversion.equals(Jbasev[4]) || Jversion == Jbasev[4]) {
-//				Jbaseversion = TSP  ETL长城非埋点清洗专用
+//				Jbaseversion = TSP ETL长城非埋点清洗专用
 				type = 5;
 			}
 			if(Jversion.equals(Jbasev[5]) || Jversion == Jbasev[5]) {
@@ -2066,6 +2111,14 @@ public class Util {
 //				Jbaseversion = ETLtarck-3  ETL SDK tarck字段为null
 				type = 11;
 			}
+			if(Jversion.equals(Jbasev[11]) || Jversion == Jbasev[11]) {
+//				portrait用户画像使用
+				type = 12;
+			}
+//			if(Jversion.equals(Jbasev[12]) || Jversion == Jbasev[12]) {
+//				Jbaseversion = V2.XX为2.0JSON ETL清洗使用
+//				type = 13;
+//			}
 		}else {
 			System.out.println("!!!!!!!! JSON base Version setting is not correct please check Main.java —— "
 					+ "String[] Jbasev. !!!!!!!!");
@@ -2079,13 +2132,14 @@ public class Util {
 	public static String makeJsonStr(Map<String, String> exchangemap,String[] envstr145,String[] envstr100,
 			String[] gpsstr145,String[] gpsstr100,String[] pagestr145,String[] pagestr100,String[] errstr100,
 			String sheetname,String tmpfuncval,String tmptestpointval,String tmpJversionval,String[] Jbasev,
-			String[] actor,String[] decice,String[] envtsp,String[] evttsp) {
+			String[] actor,String[] decice,String[] envtsp,String[] evttsp,String[] portrait1,String[] portrait2) {
 		String Json = "";
 		Map<String, String> envmap145 = new HashMap<String, String>();
 		Map<String, String> gpsmap145 = new HashMap<String, String>();
 		Map<String, String> pagemap145 = new HashMap<String, String>();
 		Map<String, String> evtdetailmap1 = new HashMap<String, String>();
 		Map<String, String> evtdetailmap2 = new HashMap<String, String>();
+		Map<String, String> portraitmap = new HashMap<String, String>();
 		ArrayList<Map<String, String>> gps145list = new ArrayList<Map<String, String>>();
 		ArrayList<Map<String, String>> page145list = new ArrayList<Map<String, String>>();
 
@@ -2135,20 +2189,12 @@ public class Util {
 					String key = envstr100[i];
 //					System.out.println(key);
 					envmap100.put(key, exchangemap.get(key));
-//					if(key == "vin") {
-//						envmap100.put(key, exchangemap.get(key));
-//					}else if(key == "d_start_ts"){
-//						envmap100.put(key, exchangemap.get(key));
-//					}else {
-//						envmap100.put(key, exchangemap.get(key));		
-//					}
 				}
 				for(int i = 0; i < gpsstr100.length; i++) {
 					String key = gpsstr100[i];
 //					System.out.println(key);
 					gpsmap100.put(key, exchangemap.get(key));
 				}
-//				Util.printMap(gpsmap100);
 				for(int i = 0; i < pagestr100.length; i++) {
 					String key = pagestr100[i];
 					pagemap100.put(key, exchangemap.get(key));
@@ -2229,7 +2275,7 @@ public class Util {
 						"\"data_id\": \""+exchangemap.get("data_id")+"\"," +
 						"\"ext\": \""+exchangemap.get("ext")+"\"," +
 						"\"gen_ts\": \""+exchangemap.get("gen_ts")+"\"," +
-						"\"env\": "+jsonenvmap145.toString()+"\"," +
+						"\"env\": "+jsonenvmap145.toString()+"," +
 						"\"track\": [{"+
 							"\"evt\": [{"+
 								"\"evt_beg_ts\": \""+exchangemap.get("evt_beg_ts")+"\"," +
@@ -2238,7 +2284,7 @@ public class Util {
 //								"\"content_tag\": \""+exchangemap.get("content_tag")+"\"," +
 								"\"p_beg_ts\": \""+exchangemap.get("p_beg_ts")+"\"," +
 								"\"func_id\": \""+exchangemap.get("func_id")+"\"," +
-								"\"evt_detail\": "+jsonevtdetaillist.toString()+"," +
+//								"\"evt_detail\": "+jsonevtdetaillist.toString()+"," +
 								"\"evt_end_ts\": \""+exchangemap.get("evt_end_ts")+"\"," +
 								"\"f_beg_ts\": \""+exchangemap.get("f_beg_ts")+"\"," +
 								"\"page_id\": \""+exchangemap.get("page_id")+"\"," +
@@ -2256,7 +2302,7 @@ public class Util {
 							"\"first_use\": \""+exchangemap.get("first_use")+"\","  +
 							"\"app_start_ts\": \""+exchangemap.get("app_start_ts")+"\"," +
 							"\"first_day\": \""+exchangemap.get("first_day")+"\"," +
-							"\"gps\": " + jsongps145list.toString() +"\","+
+							"\"gps\": " + jsongps145list.toString() +","+
 							"\"page\": "+jsonpage145list.toString() 
 						+"}]"
 					+"}";
@@ -2265,7 +2311,6 @@ public class Util {
 //				V1.1
 				for(int i = 0; i < envstr100.length; i++) {
 					String key = envstr100[i];
-//					System.out.println(key);
 					if(key == "vin") {
 						envmap101.put(key, exchangemap.get("device_id"));
 						exchangemap.put(key, exchangemap.get("device_id"));
@@ -2440,10 +2485,6 @@ public class Util {
 			break;
 			case 6:
 //				ETL env为空
-//				for(int i = 0; i < envstr145.length; i++) {
-//					String key = envstr145[i];
-//					envmap145.put(key, exchangemap.get(key));
-//				}
 				for(int i = 0; i < gpsstr145.length; i++) {
 					String key = gpsstr145[i];
 					gpsmap145.put(key, exchangemap.get(key));
@@ -2500,10 +2541,6 @@ public class Util {
 			break;
 			case 7:
 //				ETL env为空格
-//				for(int i = 0; i < envstr145.length; i++) {
-//					String key = envstr145[i];
-//					envmap145.put(key, exchangemap.get(key));
-//				}
 				for(int i = 0; i < gpsstr145.length; i++) {
 					String key = gpsstr145[i];
 					gpsmap145.put(key, exchangemap.get(key));
@@ -2560,10 +2597,6 @@ public class Util {
 			break;
 			case 8:
 //				ETL env为null
-//				for(int i = 0; i < envstr145.length; i++) {
-//					String key = envstr145[i];
-//					envmap145.put(key, exchangemap.get(key));
-//				}
 				for(int i = 0; i < gpsstr145.length; i++) {
 					String key = gpsstr145[i];
 					gpsmap145.put(key, exchangemap.get(key));
@@ -2624,19 +2657,7 @@ public class Util {
 					String key = envstr145[i];
 					envmap145.put(key, exchangemap.get(key));
 				}
-//				for(int i = 0; i < gpsstr145.length; i++) {
-//					String key = gpsstr145[i];
-//					gpsmap145.put(key, exchangemap.get(key));
-//				}
-//				for(int i = 0; i < pagestr145.length; i++) {
-//					String key = pagestr145[i];
-//					pagemap145.put(key, exchangemap.get(key));
-//				}
-//				gps145list.add(gpsmap145);
-//				page145list.add(pagemap145);
 				jsonenvmap145 = JSONObject.fromObject(envmap145);
-//				jsongps145list = JSONArray.fromObject(gps145list);
-//				jsonpage145list = JSONArray.fromObject(page145list);
 				exchangemap.put("data_id", exchangemap.get("vin")+"#"+exchangemap.get("device_id")+"#"+
 						exchangemap.get("user_id")+"#"+exchangemap.get("uuid"));
 				Json = "{\"datas\": [{"+
@@ -2658,19 +2679,7 @@ public class Util {
 					String key = envstr145[i];
 					envmap145.put(key, exchangemap.get(key));
 				}
-//				for(int i = 0; i < gpsstr145.length; i++) {
-//					String key = gpsstr145[i];
-//					gpsmap145.put(key, exchangemap.get(key));
-//				}
-//				for(int i = 0; i < pagestr145.length; i++) {
-//					String key = pagestr145[i];
-//					pagemap145.put(key, exchangemap.get(key));
-//				}
-//				gps145list.add(gpsmap145);
-//				page145list.add(pagemap145);
 				jsonenvmap145 = JSONObject.fromObject(envmap145);
-//				jsongps145list = JSONArray.fromObject(gps145list);
-//				jsonpage145list = JSONArray.fromObject(page145list);
 				exchangemap.put("data_id", exchangemap.get("vin")+"#"+exchangemap.get("device_id")+"#"+
 						exchangemap.get("user_id")+"#"+exchangemap.get("uuid"));
 				Json = "{\"datas\": [{"+
@@ -2692,19 +2701,7 @@ public class Util {
 					String key = envstr145[i];
 					envmap145.put(key, exchangemap.get(key));
 				}
-//				for(int i = 0; i < gpsstr145.length; i++) {
-//					String key = gpsstr145[i];
-//					gpsmap145.put(key, exchangemap.get(key));
-//				}
-//				for(int i = 0; i < pagestr145.length; i++) {
-//					String key = pagestr145[i];
-//					pagemap145.put(key, exchangemap.get(key));
-//				}
-//				gps145list.add(gpsmap145);
-//				page145list.add(pagemap145);
 				jsonenvmap145 = JSONObject.fromObject(envmap145);
-//				jsongps145list = JSONArray.fromObject(gps145list);
-//				jsonpage145list = JSONArray.fromObject(page145list);
 				exchangemap.put("data_id", exchangemap.get("vin")+"#"+exchangemap.get("device_id")+"#"+
 						exchangemap.get("user_id")+"#"+exchangemap.get("uuid"));
 				Json = "{\"datas\": [{"+
@@ -2719,6 +2716,16 @@ public class Util {
 					"\"appKey\": \""+exchangemap.get("appKey")+"\"," +
 					"\"parsedTs\": \""+exchangemap.get("parsedTs")+"\"" +
 					"}";
+			break;
+			case 12:
+				portraitmap = Util.genportraitmap(portrait1, portrait2, exchangemap);
+//				Util.printMap(portraitmap);
+				JSONObject jportraitmap = JSONObject.fromObject(portraitmap);
+				Json = jportraitmap.toString();
+			break;
+			case 13:
+//				预留2.XXJSON ETL清洗拼接使用。
+			
 			break;
 			default:
 				System.out.println("!!!!!!!! Jversion not found please check " + sheetname +"——"+ tmpfuncval +"——"+ 
@@ -2804,6 +2811,19 @@ public class Util {
 		return list;
 	}
 	
+//	获取文件夹名称
+	public static List<String> getFolderName(File file){
+		List<String> list = new ArrayList<String>();
+//		System.out.println(list.toString());
+		File[] tmp = file.listFiles();
+		for (int i = 0; i < tmp.length;i++){
+			if(tmp[i].isDirectory()) {
+				list.add(tmp[i].getName());
+			}
+		}
+		return list;
+	}
+	
 //	判断自定义K-V中K是否不存在
 	public static boolean checkKey(String key,Map<String, String> exchangemap) {
 		boolean flag = true;
@@ -2822,10 +2842,81 @@ public class Util {
 		boolean flag = true;
 		File f = new File(path);
 		if(!f.exists()) {
-			System.out.println("!!!!!!!! Bank.txt was missing .Please check bank file, and put the bank.txt @ /Source/ !!!!!!!!");
+			System.out.println("!!!!!!!! " +path+ " was missing .Please check missing file, and put the right file in right path !!!!!!!!");
 			flag = false;
 		}
 		return flag;
+	}
+	
+//	读取baseinfo文件
+	public static Map<String, String> getBaseInfo(String path) throws Exception{
+		Map<String, String> map = new HashMap<String, String>();
+		boolean flag = Util.checkBank(path);
+		if(flag) {
+			File file = new File(path);
+			FileReader fr = new FileReader(file);
+			BufferedReader br = new BufferedReader(fr);
+			String s = br.readLine();
+			while(s != null) {
+//				System.out.println(s);
+				if(s.contains("=")) {
+					String[] tmp = s.split("=");
+					if(tmp.length == 2) {
+						map.put(tmp[0], tmp[1]);
+					}else{
+						System.out.println(tmp[0] + " Key is without Value, Please check");
+					}
+				}
+				s = br.readLine();
+			}
+			
+		}else {
+			System.out.println("!!!!!!!! Please check " + path + " !!!!!!!!");
+		}
+		
+		return map;
+	}
+	
+//	选择ETL输入类型
+	public static String selectETLInput() {
+		boolean flag = true;
+		String s = "";
+		while(flag){
+			System.out.println("1 for Nomal Json , 2 for ProtocolBuff V1 Json ,"
+					+ " 3 for ProtocolBuff V2 Json");
+			System.out.print("Please select ETL input type : ");
+			s = Util.getInput().trim();
+			if(s.contentEquals("1") || s.contentEquals("2") || 
+					s.contentEquals("3") || s == "1" || 
+					s == "2" || s == "3" ) {
+				flag = false;
+			}else {
+				System.out.println("Please input 1,2,3 to countinue...");
+			}
+		}
+		return s;
+	}
+	
+//	portraitmap生成
+	public static Map<String, String> genportraitmap(String[] portrait1,String[] portrait2,Map<String, String> exchangemap) {
+		Map<String, String> portraitmap = new HashMap<String, String>();
+		if(portrait1.length > 0) {
+			for(String s : portrait1) {
+				portraitmap.put(s, exchangemap.get(s));
+			}
+		}else{
+			System.out.println("!!!!!!!! portrait1 is incorrect please check baseinfo.txt");
+		}
+		
+		if(portrait2.length > 0) {
+			for(String s : portrait2) {
+				portraitmap.put(s, exchangemap.get(s));
+			}
+		}else{
+			System.out.println("!!!!!!!! portrait2 is incorrect please check baseinfo.txt");
+		}
+		
+		return portraitmap;
 	}
 	
 //	测试方法：

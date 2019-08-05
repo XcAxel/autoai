@@ -10,6 +10,12 @@ import java.util.Properties;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
+
+import com.alibaba.fastjson.JSONObject;
+
+import Domian.PBResultBean;
+import Domian.Protov1;
+import Domian.Protov2;
 import Util.Util;
 
 
@@ -51,7 +57,13 @@ public class KafkaMethod {
 		 props.put("buffer.memory", 33554432);
 		 props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 		 props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-
+		 String device_id = ""; 
+		 String json = "";
+		 String jver = "";
+		 Protov1 pv1 = new Protov1();
+		 Protov2 pv2 = new Protov2();
+		 PBResultBean pbrb = new PBResultBean();
+		 byte[] bytes = {};
 		 Producer<String, String> producer = new KafkaProducer<>(props);
 		 if(flag) {
 			 System.out.println("======== Sending data to Kafka server ========");
@@ -67,17 +79,42 @@ public class KafkaMethod {
 			String s = br.readLine();
 			while(s != null){
 				String[] tmp = s.split("=");
-				String device_id = tmp[0];
-				String json = tmp[1];
-				bw.write(device_id);
-				bw.flush();
-				bw.newLine();
-				bw2.write(json);
-				bw2.flush();
-				bw2.newLine();
+				if(tmp.length == 3) {
+					device_id = tmp[0];
+					json = tmp[1];
+					jver = tmp[2];
+					bw.write(device_id);
+					bw.flush();
+					bw.newLine();
+					bw2.write(json + "=" + jver);
+					bw2.flush();
+					bw2.newLine();
+				}
 //				System.out.println("print current Json : --> " + json);
 				if(flag) {
-					producer.send(new ProducerRecord<String, String>(topic, device_id, json));					
+//					switch(select) {
+					switch(jver) {
+					case "V1.4.5":
+//					case "TSPP":
+//						For ProtocolBuff V1 Json
+						bytes = pv1.genPbV1Data(json);
+						pbrb.setData(bytes);
+						pbrb.setParams("1.0");
+						json = JSONObject.toJSONString(pbrb);
+						producer.send(new ProducerRecord<String, String>(topic, json));
+					break;
+					case "V2.4.5":
+//						For ProtocolBuff V2 Json
+						bytes = pv2.genPbV1Data(json);
+						pbrb.setData(bytes);
+						pbrb.setParams("2.0");
+						json = JSONObject.toJSONString(pbrb);
+						producer.send(new ProducerRecord<String, String>(topic, json));
+					break;
+					default:
+						producer.send(new ProducerRecord<String, String>(topic, device_id, json));
+					break;
+					}				
 				}
 				sum += 1;
 				s = br.readLine();

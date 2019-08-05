@@ -10,8 +10,12 @@ import java.util.Properties;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import com.alibaba.fastjson.JSONObject;
+import Domian.PBResultBean;
+import Domian.Protov1;
+import Domian.Protov2;
 import Util.Util;
-import net.sf.json.JSONObject;
+
 
 /**
  * <!-- kafka client -->
@@ -23,6 +27,7 @@ import net.sf.json.JSONObject;
 	1，本程序是将生成好的JSON，往Kafka中输入的Producer独立运行程序。
 	2，要往Kafka中打的数据存放目录：Sourec\Kafka
 	3，运行完后程序在Source下生成device_id_solo.txt,ALLJson_solo.txt,两个文件分别记录往Kafka中打的数据的device_id和JSON串。
+	4，选择1-Nomal 打入为ETL非外层Topic，以及ETL后的后端程序的Topic，2-v1，3-v2打入均为ETL外层Topic，打入形式为Protocolbuff压缩后的内容。
  * */
 
 public class KafkaProducerClient {
@@ -44,6 +49,8 @@ public class KafkaProducerClient {
 		List<String> filelist = Util.getFileName(file);
 		FileReader fr = null;
 		BufferedReader br = null;
+//		选择
+//		String select = Util.selectETLInput();		
 //		记录device_id.
 		FileWriter fw = new FileWriter(outputPath);
 		BufferedWriter bw = new BufferedWriter(fw);
@@ -52,6 +59,7 @@ public class KafkaProducerClient {
 		FileWriter fw2 = new FileWriter(allJoutputPath);
 		BufferedWriter bw2 = new BufferedWriter(fw2);
 		String json = "";
+		String jver = "";
 //		Kafka配置
 		Properties props = new Properties();
 //		 props.put("bootstrap.servers", "192.168.147.120:9092,192.168.147.121:9092,192.168.147.122:9092");
@@ -64,7 +72,11 @@ public class KafkaProducerClient {
 		 props.put("buffer.memory", 33554432);
 		 props.put("key.serializer", "org.apache.kafka.common.serialization.StringSerializer");
 		 props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
-
+		 
+		 Protov1 pv1 = new Protov1();
+		 Protov2 pv2 = new Protov2();
+		 PBResultBean pbrb = new PBResultBean();
+		 byte[] bytes = {};
 		 Producer<String, String> producer = new KafkaProducer<>(props);
 		 if(flag) {
 			 System.out.println("======== Sending data to Kafka server ========");
@@ -81,30 +93,58 @@ public class KafkaProducerClient {
 			while(s != null){
 				if(s.contains("=")){
 					String[] tmp = s.split("=");
-					device_id = tmp[0];
-					json = tmp[1];
-					bw.write(device_id);
-					bw.flush();
-					bw.newLine();
-					bw2.write(json);
-					bw2.flush();
-					bw2.newLine();
+					if(tmp.length == 3) {
+						device_id = tmp[0];
+						json = tmp[1];
+						jver = tmp[2];
+						bw.write(device_id);
+						bw.flush();
+						bw.newLine();
+						bw2.write(json + "=" + jver);
+						bw2.flush();
+						bw2.newLine();
+					}else {
+						json = tmp[0];
+						jver = tmp[1];
+						net.sf.json.JSONObject js = net.sf.json.JSONObject.fromObject(json);
+						net.sf.json.JSONObject jstmp = (net.sf.json.JSONObject) js.get("env");
+						device_id = jstmp.get("device_id").toString();
+						bw.write(device_id);
+						bw.flush();
+						bw.newLine();
+						bw2.write(json + "=" + jver);
+						bw2.flush();
+						bw2.newLine();
+					}
 				}else {
-					JSONObject js = JSONObject.fromObject(s);
-					JSONObject jstmp = (JSONObject) js.get("env");
-					device_id = jstmp.get("device_id").toString();
-					json = s;
-					bw.write(device_id);
-					bw.flush();
-					bw.newLine();
-					bw2.write(json);
-					bw2.flush();
-					bw2.newLine();
+					
 				}
-				
 //				System.out.println("print current Json : --> " + json);
 				if(flag) {
-					producer.send(new ProducerRecord<String, String>(topic, device_id, json));
+//					switch(select) {
+					switch(jver) {
+					case "V1.4.5":
+//					case "TSPP":
+//						For ProtocolBuff V1 Json
+//						System.out.println(json);
+						bytes = pv1.genPbV1Data(json);
+						pbrb.setData(bytes);
+						pbrb.setParams("1.0");
+						json = JSONObject.toJSONString(pbrb);
+						producer.send(new ProducerRecord<String, String>(topic, json));
+					break;
+					case "V2.4.5":
+//						For ProtocolBuff V2 Json
+						bytes = pv2.genPbV1Data(json);
+						pbrb.setData(bytes);
+						pbrb.setParams("2.0");
+						json = JSONObject.toJSONString(pbrb);
+						producer.send(new ProducerRecord<String, String>(topic, json));
+					break;
+					default:
+						producer.send(new ProducerRecord<String, String>(topic, device_id, json));
+					break;
+					}
 				}
 				sum += 1;
 				s = br.readLine();
