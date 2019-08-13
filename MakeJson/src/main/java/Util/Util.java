@@ -2383,31 +2383,33 @@ public class Util {
 					+"}";
 			break;
 			case 4 :
-//				ETL SDK埋点内层V1.4.5
-				for(int i = 0; i < envstr145.length; i++) {
-					String key = envstr145[i];
-					envmap145.put(key, exchangemap.get(key));
+//				ETL SDK埋点内层V1.1
+				for(int i = 0; i < envstr100.length; i++) {
+					String key = envstr100[i];
+//					System.out.println(key);
+					envmap100.put(key, exchangemap.get(key));
 				}
-				for(int i = 0; i < gpsstr145.length; i++) {
-					String key = gpsstr145[i];
-					gpsmap145.put(key, exchangemap.get(key));
+				for(int i = 0; i < gpsstr100.length; i++) {
+					String key = gpsstr100[i];
+//					System.out.println(key);
+					gpsmap100.put(key, exchangemap.get(key));
 				}
-				for(int i = 0; i < pagestr145.length; i++) {
-					String key = pagestr145[i];
-					pagemap145.put(key, exchangemap.get(key));
+				for(int i = 0; i < pagestr100.length; i++) {
+					String key = pagestr100[i];
+					pagemap100.put(key, exchangemap.get(key));
 				}
-				gps145list.add(gpsmap145);
-				page145list.add(pagemap145);
-				jsonenvmap145 = JSONObject.fromObject(envmap145);
-				jsongps145list = JSONArray.fromObject(gps145list);
-				jsonpage145list = JSONArray.fromObject(page145list);
+				gps100list.add(gpsmap100);
+				page100list.add(pagemap100);
+				jsonenvmap100 = JSONObject.fromObject(envmap100);
+				jsongps100list=JSONArray.fromObject(gps100list);
+				jsonpage100list=JSONArray.fromObject(page100list);
 				exchangemap.put("data_id", exchangemap.get("vin")+"#"+exchangemap.get("device_id")+"#"+
 						exchangemap.get("user_id")+"#"+exchangemap.get("uuid"));
 				Json = "{\"datas\": [{"+
 						"\"data_id\": \""+exchangemap.get("data_id")+"\"," +
 						"\"ext\": \""+exchangemap.get("ext")+"\"," +
 						"\"gen_ts\": \""+exchangemap.get("gen_ts")+"\"," +
-						"\"env\": "+jsonenvmap145.toString()+"," +
+						"\"env\": "+jsonenvmap100.toString()+"," +
 						"\"track\": [{"+
 							"\"evt\": [{"+
 								"\"evt_beg_ts\": \""+exchangemap.get("evt_beg_ts")+"\"," +
@@ -2433,8 +2435,8 @@ public class Util {
 							"\"first_use\": \""+exchangemap.get("first_use")+"\","  +
 							"\"app_start_ts\": \""+exchangemap.get("app_start_ts")+"\"," +
 							"\"first_day\": \""+exchangemap.get("first_day")+"\"," +
-							"\"gps\": "+jsongps145list.toString()+"," +
-							"\"page\": "+jsonpage145list.toString() 
+							"\"gps\": "+jsongps100list.toString()+"," +
+							"\"page\": "+jsonpage100list.toString() 
 						+"}]"
 					+"}"
 					+ "],"+
@@ -2485,18 +2487,19 @@ public class Util {
 			break;
 			case 6:
 //				ETL env为空
-				for(int i = 0; i < gpsstr145.length; i++) {
-					String key = gpsstr145[i];
-					gpsmap145.put(key, exchangemap.get(key));
+				for(int i = 0; i < gpsstr100.length; i++) {
+					String key = gpsstr100[i];
+//					System.out.println(key);
+					gpsmap100.put(key, exchangemap.get(key));
 				}
-				for(int i = 0; i < pagestr145.length; i++) {
-					String key = pagestr145[i];
-					pagemap145.put(key, exchangemap.get(key));
+				for(int i = 0; i < pagestr100.length; i++) {
+					String key = pagestr100[i];
+					pagemap100.put(key, exchangemap.get(key));
 				}
-				gps145list.add(gpsmap145);
-				page145list.add(pagemap145);
-				jsongps145list = JSONArray.fromObject(gps145list);
-				jsonpage145list = JSONArray.fromObject(page145list);
+				gps100list.add(gpsmap100);
+				page100list.add(pagemap100);
+				jsongps100list=JSONArray.fromObject(gps100list);
+				jsonpage100list=JSONArray.fromObject(page100list);
 				exchangemap.put("data_id", exchangemap.get("vin")+"#"+exchangemap.get("device_id")+"#"+
 						exchangemap.get("user_id")+"#"+exchangemap.get("uuid"));
 				Json = "{\"datas\": [{"+
@@ -2529,8 +2532,8 @@ public class Util {
 							"\"first_use\": \""+exchangemap.get("first_use")+"\","  +
 							"\"app_start_ts\": \""+exchangemap.get("app_start_ts")+"\"," +
 							"\"first_day\": \""+exchangemap.get("first_day")+"\"," +
-							"\"gps\": "+jsongps145list.toString()+"," +
-							"\"page\": "+jsonpage145list.toString() 
+							"\"gps\": "+jsongps100list.toString()+"," +
+							"\"page\": "+jsonpage100list.toString() 
 						+"}]"
 					+"}"
 					+ "],"+
@@ -2541,18 +2544,19 @@ public class Util {
 			break;
 			case 7:
 //				ETL env为空格
-				for(int i = 0; i < gpsstr145.length; i++) {
-					String key = gpsstr145[i];
-					gpsmap145.put(key, exchangemap.get(key));
+				for(int i = 0; i < gpsstr100.length; i++) {
+					String key = gpsstr100[i];
+//					System.out.println(key);
+					gpsmap100.put(key, exchangemap.get(key));
 				}
-				for(int i = 0; i < pagestr145.length; i++) {
-					String key = pagestr145[i];
-					pagemap145.put(key, exchangemap.get(key));
+				for(int i = 0; i < pagestr100.length; i++) {
+					String key = pagestr100[i];
+					pagemap100.put(key, exchangemap.get(key));
 				}
-				gps145list.add(gpsmap145);
-				page145list.add(pagemap145);
-				jsongps145list = JSONArray.fromObject(gps145list);
-				jsonpage145list = JSONArray.fromObject(page145list);
+				gps100list.add(gpsmap100);
+				page100list.add(pagemap100);
+				jsongps100list=JSONArray.fromObject(gps100list);
+				jsonpage100list=JSONArray.fromObject(page100list);
 				exchangemap.put("data_id", exchangemap.get("vin")+"#"+exchangemap.get("device_id")+"#"+
 						exchangemap.get("user_id")+"#"+exchangemap.get("uuid"));
 				Json = "{\"datas\": [{"+
@@ -2585,8 +2589,8 @@ public class Util {
 							"\"first_use\": \""+exchangemap.get("first_use")+"\","  +
 							"\"app_start_ts\": \""+exchangemap.get("app_start_ts")+"\"," +
 							"\"first_day\": \""+exchangemap.get("first_day")+"\"," +
-							"\"gps\": "+jsongps145list.toString()+"," +
-							"\"page\": "+jsonpage145list.toString() 
+							"\"gps\": "+jsongps100list.toString()+"," +
+							"\"page\": "+jsonpage100list.toString() 
 						+"}]"
 					+"}"
 					+ "],"+
@@ -2597,25 +2601,26 @@ public class Util {
 			break;
 			case 8:
 //				ETL env为null
-				for(int i = 0; i < gpsstr145.length; i++) {
-					String key = gpsstr145[i];
-					gpsmap145.put(key, exchangemap.get(key));
+				for(int i = 0; i < gpsstr100.length; i++) {
+					String key = gpsstr100[i];
+//					System.out.println(key);
+					gpsmap100.put(key, exchangemap.get(key));
 				}
-				for(int i = 0; i < pagestr145.length; i++) {
-					String key = pagestr145[i];
-					pagemap145.put(key, exchangemap.get(key));
+				for(int i = 0; i < pagestr100.length; i++) {
+					String key = pagestr100[i];
+					pagemap100.put(key, exchangemap.get(key));
 				}
-				gps145list.add(gpsmap145);
-				page145list.add(pagemap145);
-				jsongps145list = JSONArray.fromObject(gps145list);
-				jsonpage145list = JSONArray.fromObject(page145list);
+				gps100list.add(gpsmap100);
+				page100list.add(pagemap100);
+				jsongps100list=JSONArray.fromObject(gps100list);
+				jsonpage100list=JSONArray.fromObject(page100list);
 				exchangemap.put("data_id", exchangemap.get("vin")+"#"+exchangemap.get("device_id")+"#"+
 						exchangemap.get("user_id")+"#"+exchangemap.get("uuid"));
 				Json = "{\"datas\": [{"+
 						"\"data_id\": \""+exchangemap.get("data_id")+"\"," +
 						"\"ext\": \""+exchangemap.get("ext")+"\"," +
 						"\"gen_ts\": \""+exchangemap.get("gen_ts")+"\"," +
-						"\"env\": {null}," +
+						"\"env\": null," +
 						"\"track\": [{"+
 							"\"evt\": [{"+
 								"\"evt_beg_ts\": \""+exchangemap.get("evt_beg_ts")+"\"," +
@@ -2641,8 +2646,8 @@ public class Util {
 							"\"first_use\": \""+exchangemap.get("first_use")+"\","  +
 							"\"app_start_ts\": \""+exchangemap.get("app_start_ts")+"\"," +
 							"\"first_day\": \""+exchangemap.get("first_day")+"\"," +
-							"\"gps\": "+jsongps145list.toString()+"," +
-							"\"page\": "+jsonpage145list.toString() 
+							"\"gps\": "+jsongps100list.toString()+"," +
+							"\"page\": "+jsonpage100list.toString() 
 						+"}]"
 					+"}"
 					+ "],"+
@@ -2653,18 +2658,19 @@ public class Util {
 			break;
 			case 9:
 //				ETL tarck为空
-				for(int i = 0; i < envstr145.length; i++) {
-					String key = envstr145[i];
-					envmap145.put(key, exchangemap.get(key));
+				for(int i = 0; i < envstr100.length; i++) {
+					String key = envstr100[i];
+//					System.out.println(key);
+					envmap100.put(key, exchangemap.get(key));
 				}
-				jsonenvmap145 = JSONObject.fromObject(envmap145);
+				jsonenvmap100 = JSONObject.fromObject(envmap100);
 				exchangemap.put("data_id", exchangemap.get("vin")+"#"+exchangemap.get("device_id")+"#"+
 						exchangemap.get("user_id")+"#"+exchangemap.get("uuid"));
 				Json = "{\"datas\": [{"+
 						"\"data_id\": \""+exchangemap.get("data_id")+"\"," +
 						"\"ext\": \""+exchangemap.get("ext")+"\"," +
 						"\"gen_ts\": \""+exchangemap.get("gen_ts")+"\"," +
-						"\"env\": "+jsonenvmap145.toString()+"," +
+						"\"env\": "+jsonenvmap100.toString()+"," +
 						"\"track\": []"
 					+"}"
 					+ "],"+
@@ -2675,18 +2681,19 @@ public class Util {
 			break;
 			case 10:
 //				ETL tarck为空格
-				for(int i = 0; i < envstr145.length; i++) {
-					String key = envstr145[i];
-					envmap145.put(key, exchangemap.get(key));
+				for(int i = 0; i < envstr100.length; i++) {
+					String key = envstr100[i];
+//					System.out.println(key);
+					envmap100.put(key, exchangemap.get(key));
 				}
-				jsonenvmap145 = JSONObject.fromObject(envmap145);
+				jsonenvmap100 = JSONObject.fromObject(envmap100);
 				exchangemap.put("data_id", exchangemap.get("vin")+"#"+exchangemap.get("device_id")+"#"+
 						exchangemap.get("user_id")+"#"+exchangemap.get("uuid"));
 				Json = "{\"datas\": [{"+
 						"\"data_id\": \""+exchangemap.get("data_id")+"\"," +
 						"\"ext\": \""+exchangemap.get("ext")+"\"," +
 						"\"gen_ts\": \""+exchangemap.get("gen_ts")+"\"," +
-						"\"env\": "+jsonenvmap145.toString()+"," +
+						"\"env\": "+jsonenvmap100.toString()+"," +
 						"\"track\": [ ]"
 					+"}"
 					+ "],"+
@@ -2697,19 +2704,20 @@ public class Util {
 			break;
 			case 11:
 //				ETL tarck为null
-				for(int i = 0; i < envstr145.length; i++) {
-					String key = envstr145[i];
-					envmap145.put(key, exchangemap.get(key));
+				for(int i = 0; i < envstr100.length; i++) {
+					String key = envstr100[i];
+//					System.out.println(key);
+					envmap100.put(key, exchangemap.get(key));
 				}
-				jsonenvmap145 = JSONObject.fromObject(envmap145);
+				jsonenvmap100 = JSONObject.fromObject(envmap100);
 				exchangemap.put("data_id", exchangemap.get("vin")+"#"+exchangemap.get("device_id")+"#"+
 						exchangemap.get("user_id")+"#"+exchangemap.get("uuid"));
 				Json = "{\"datas\": [{"+
 						"\"data_id\": \""+exchangemap.get("data_id")+"\"," +
 						"\"ext\": \""+exchangemap.get("ext")+"\"," +
 						"\"gen_ts\": \""+exchangemap.get("gen_ts")+"\"," +
-						"\"env\": "+jsonenvmap145.toString()+"," +
-						"\"track\": [null]"
+						"\"env\": "+jsonenvmap100.toString()+"," +
+						"\"track\": null"
 					+"}"
 					+ "],"+
 					"\"pbVersion\": \""+exchangemap.get("pbVersion")+"\"," +
