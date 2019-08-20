@@ -24,19 +24,24 @@ public class main {
 		String inpath = inputpath+inputfilename;
 		String outputAllfilename = "formatJsonAllKV.txt";
 		String outputTsfilename = "formatJsonTs.txt";
-		String outpathall = inpath+outputAllfilename;
-		String outpathts = inpath+outputTsfilename;
+		String outputAllfileinlinename = "formatJsonAllline.txt";
+		String outpathall = inputpath+outputAllfilename;
+		String outpathts = inputpath+outputTsfilename;
+		String outpathline = inputpath+outputAllfileinlinename;
 		int linenum = 1;
 		Util.checkDir(inputpath);
 		Util.checkInputFile(inpath);
 		Util.FileInitialize(outpathall);
 		Util.FileInitialize(outpathts);
+		Util.FileInitialize(outpathline);
 		FileReader fr = new FileReader(inpath);
 		BufferedReader br = new BufferedReader(fr);
 		FileWriter fw1 = new FileWriter(outpathall);
 		BufferedWriter allbw = new BufferedWriter(fw1);
 		FileWriter fw2 = new FileWriter(outpathts);
 		BufferedWriter tsbw = new BufferedWriter(fw2);
+		FileWriter fw3 = new FileWriter(outpathline);
+		BufferedWriter linebw = new BufferedWriter(fw3);
 		String s = br.readLine();
 		while(s != null) {
 			System.out.println("------------- line " + linenum + " Startting format -------------");
@@ -46,11 +51,13 @@ public class main {
 			allbw.newLine();
 			tsbw.newLine();
 			JSONObject jsonObject = JSONObject.fromObject(s);
-			Util.keyIterator(jsonObject,allbw,tsbw);
+			Util.keyIterator(jsonObject,allbw,tsbw,linebw);
 			allbw.write("------------- line " + linenum + " End -------------");
 			tsbw.write("------------- line " + linenum + " End -------------");
 			allbw.newLine();
 			tsbw.newLine();
+			linebw.newLine();;
+			linebw.flush();
 			System.out.println("------------- line " + linenum + " Endding format -------------");
 			System.out.println();
 			linenum++;
@@ -58,7 +65,10 @@ public class main {
 		}
 		allbw.close();
 		tsbw.close();
+		linebw.close();
 		fw1.close();
 		fw2.close();
+		fw3.close();
+		System.out.println("Total format "+ linenum+ " JSONs");
 	}
 }

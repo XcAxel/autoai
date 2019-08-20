@@ -15,7 +15,7 @@ import net.sf.json.JSONObject;
 
 public class Util {
 //	JSON递归
-	public static void keyIterator(JSONObject jsonObject,BufferedWriter allbw,BufferedWriter tsbw) throws Exception {
+	public static void keyIterator(JSONObject jsonObject,BufferedWriter allbw,BufferedWriter tsbw,BufferedWriter linebw) throws Exception {
 		JSONObject tmpjsonObject = null;
 		Iterator<String> keys = jsonObject.keys();
 		while (keys.hasNext()){
@@ -23,13 +23,13 @@ public class Util {
 		   String value = jsonObject.getString(key).trim();
 		   if(value.startsWith("{") && value.endsWith("}")) {
 			   tmpjsonObject = JSONObject.fromObject(value);
-			   keyIterator(tmpjsonObject,allbw,tsbw);
+			   keyIterator(tmpjsonObject,allbw,tsbw,linebw);
 		   }else if(value.startsWith("[") && value.endsWith("]")) {
 			   JSONArray jsonArray = JSONArray.fromObject(value);
 			   Object[] stemp = jsonArray.toArray();
 			   for(int i = 0; i < stemp.length;i++) {
 				   tmpjsonObject = JSONObject.fromObject(stemp[i]);
-				   keyIterator(tmpjsonObject,allbw,tsbw);
+				   keyIterator(tmpjsonObject,allbw,tsbw,linebw);
 			   }
 		   }
 		   if(!value.startsWith("{") && !value.endsWith("}") 
@@ -43,8 +43,10 @@ public class Util {
 //					   System.out.println(key + "--------- " + time);
 					   tsbw.write(tmp);
 					   allbw.write(tmp);
+					   linebw.write(tmp+"|");
 					   tsbw.flush();
 					   allbw.flush();
+					   linebw.flush();
 					   tsbw.newLine();
 					   allbw.newLine();
 				   }
@@ -52,6 +54,8 @@ public class Util {
 				   String tmp = key+"="+value;
 //				   System.out.println(key + "--------- " + value);
 				   allbw.write(tmp);
+				   linebw.write(tmp+"|");
+				   linebw.flush();
 				   allbw.flush();
 				   allbw.newLine();
 			   }
@@ -59,7 +63,7 @@ public class Util {
 		}
 	}
 	
-//	获取毫秒
+//	格式化时间
 	public static String getMtime(long time) throws Exception{
 		Date date = new Date(time);
 		DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
