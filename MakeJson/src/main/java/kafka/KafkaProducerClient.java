@@ -141,6 +141,8 @@ public class KafkaProducerClient {
 						json = JSONObject.toJSONString(pbrb);
 						producer.send(new ProducerRecord<String, String>(topic, json));
 					break;
+					case "IntelligentScenario":
+						producer.send(new ProducerRecord<String, String>(topic, json));
 					default:
 						producer.send(new ProducerRecord<String, String>(topic, device_id, json));
 					break;

@@ -29,7 +29,7 @@ import kafka.KafkaMethod;
  * 7,输出造Json串结果文件保存在Source/DataResultFolder/ 命名规则：sheet+func+testpoint+JSONbaseversion.txt
  * 8,模式选择：普通做串选择1，ETL做串选择2，区别为ETL做完串后直接放Kafka中打。
  * 9,Kafka运行后再Source中生成device_id_sheetname.txt,ALLJson_sheetname.txt,两个文件分别记录往Kafka中打的数据的device_id和JSON串。
- *
+ *10,情景智能用例如不设置reportTime，则在程序中有初始时间戳，且每条间隔2分钟，如需自己设置，则时间结尾用001表示。
  * */
 
 public class Main {
@@ -44,6 +44,12 @@ public class Main {
 //		String defaultfilename = "DataTestCase-Nomal.xls";
 		String defaultfilename = "DataTestCase-ETL.xls";
 //		String defaultfilename = "DataTestCase.xlsx";
+		
+//		情景智能时间戳，2分钟间隔
+		long ts = 1567562400000l;
+		long tsplus = 120000l;
+		int count = 1;
+		
 //		标准文件
 		String bankname = basepath + "bank.txt";
 		String basename = basepath +"baseinfo.txt";
@@ -87,6 +93,9 @@ public class Main {
 //		用户画像各种字段：
 		String[] portrait1 = basemap.get("portrait1").split(",");
 		String[] portrait2 = basemap.get("portrait2").split(",");
+
+//		情景智能字段：
+		String[] IntelligentScenario = basemap.get("IntelligentScenario").split(",");
 		
 //		Kafka 配置信息
 		String topic = basemap.get("topic");
@@ -203,7 +212,8 @@ public class Main {
 										funcnameval, testpointval, Jversionval, tmpfuncval, tmptestpointval, tmpJversionval, 
 										funcname, testpointname, inputcontentname, iscopy, copytimes, Jversion, path,casepath, 
 										orgibw, defaultmap, exchangemap, evnstr145, evnstr100, gpsstr145, gpsstr100, pagestr145, 
-										pagestr100, errstr100,Jbasev,isjumpname,isjumpnamenum,isjumpval,tmpisjumpval,actor,decice,envtsp,evttsp,portrait1,portrait2);
+										pagestr100, errstr100,Jbasev,isjumpname,isjumpnamenum,isjumpval,tmpisjumpval,actor,
+										decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,ts,tsplus);
 								System.out.println();
 								System.out.println("######## "+ sheetname + "'s case is finished. ########");
 								System.out.println();
@@ -270,7 +280,8 @@ public class Main {
 										funcnameval, testpointval, Jversionval, tmpfuncval, tmptestpointval, tmpJversionval, 
 										funcname, testpointname, inputcontentname, iscopy, copytimes, Jversion, path,casepath, 
 										orgibw, defaultmap, exchangemap, evnstr145,evnstr100, gpsstr145,gpsstr100, pagestr145,
-										pagestr100,errstr100,Jbasev,isjumpname,isjumpnamenum,isjumpval,tmpisjumpval,actor,decice,envtsp,evttsp,portrait1,portrait2);
+										pagestr100,errstr100,Jbasev,isjumpname,isjumpnamenum,isjumpval,tmpisjumpval,actor,
+										decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,ts,tsplus);
 								System.out.println();
 								System.out.println("######## "+ sheetname + "'s case is finished. ########");
 								System.out.println();

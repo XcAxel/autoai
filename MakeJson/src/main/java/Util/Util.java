@@ -113,7 +113,7 @@ public class Util {
 			Map<String, String> defaultmap,Map<String, String> exchangemap,String[] envstr145,String[] envstr100,
 			String[] gpsstr145,String[] gpsstr100,String[] pagestr145,String[] pagestr100,String[] errstr100,String[] Jbasev,
 			String isjumpname,int isjumpnamenum,String isjumpval,String tmpisjumpval,String[] actor,
-			String[] decice,String[] envtsp,String[] evttsp,String[] portrait1,String[] portrait2) 
+			String[] decice,String[] envtsp,String[] evttsp,String[] portrait1,String[] portrait2,String[] IntelligentScenario,long ts,long tsplus) 
 					throws Exception {
 		frownum = positionmap.get("frownum");
 		erownum = positionmap.get("erownum");
@@ -158,6 +158,7 @@ public class Util {
 //		
 //		轮训获取
 	    for(int i = frownum+offset ; i <= erownum; i++) {
+	    	long teresult = ts+tsplus*(i-1);
 	    	row = tarSheet.getRow(i);
 	    	tmpfuncval = Util.replaceEintoC(row.getCell(funcnamenumnum).getStringCellValue().trim());
 //			tmpsubfuncval = row.getCell(subfunnamenum).getStringCellValue();
@@ -252,7 +253,7 @@ public class Util {
 //											造串入口，返回一个串
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
 												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -281,7 +282,7 @@ public class Util {
 
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //										复制写
 										for(int l = 0; l <= copytimesval; l++) {
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -320,7 +321,7 @@ public class Util {
 //											System.out.println("Copy trd JV: "+tmpJversionval);
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, 
 													gpsstr100, pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, 
-													tmptestpointval, tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+													tmptestpointval, tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
 												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -359,7 +360,7 @@ public class Util {
 //									System.out.println("Copy fos JV: "+tmpJversionval);
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //									复制写
 									for(int l = 0; l <= copytimesval; l++) {
 										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -445,7 +446,7 @@ public class Util {
 //											System.out.println("UnCopy st JV: "+tmpJversionval);
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //											写一次
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
@@ -471,7 +472,7 @@ public class Util {
 //										System.out.println("UnCopy sec JV: "+tmpJversionval);
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //										写一次
 										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										orgibw.flush();
@@ -507,7 +508,7 @@ public class Util {
 //											System.out.println("UnCopy trd JV: "+tmpJversionval);
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, 
 													gpsstr100, pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, 
-													tmptestpointval, tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+													tmptestpointval, tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //											写一次
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
@@ -543,7 +544,7 @@ public class Util {
 //									System.out.println("UnCopy fos JV: "+tmpJversionval);
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //									写一次
 									orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 									orgibw.flush();
@@ -657,7 +658,7 @@ public class Util {
 //											System.out.println("funcp st JV: "+tmpJversionval);
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
 												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -687,7 +688,7 @@ public class Util {
 //										System.out.println("funcp sec JV: "+tmpJversionval);
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //										复制写
 										for(int l = 0; l <= copytimesval; l++) {
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -725,7 +726,7 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
 												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -763,7 +764,7 @@ public class Util {
 //									System.out.println("funcp fos JV: "+tmpJversionval);
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //									复制写
 									for(int l = 0; l <= copytimesval; l++) {
 										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -847,7 +848,7 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //											写一次
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
@@ -874,7 +875,7 @@ public class Util {
 //										System.out.println("fununcp sec JV: "+tmpJversionval);
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //										写一次
 										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										orgibw.flush();
@@ -910,7 +911,7 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //											写一次
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
@@ -945,7 +946,7 @@ public class Util {
 //									System.out.println("fununcp fos JV: "+tmpJversionval);
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //									写一次
 									orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 									orgibw.flush();
@@ -1074,7 +1075,8 @@ public class Util {
 			Map<String, String> defaultmap,Map<String, String> exchangemap,String[] envstr145,String[] envstr100,
 			String[] gpsstr145,String[] gpsstr100,String[] pagestr145,String[] pagestr100,String[] errstr100,String[] Jbasev,
 			String isjumpname,int isjumpnamenum,String isjumpval,String tmpisjumpval,String[] actor,
-			String[] decice,String[] envtsp,String[] evttsp,String[] portrait1,String[] portrait2) throws Exception {
+			String[] decice,String[] envtsp,String[] evttsp,String[] portrait1,String[] portrait2,
+			String[] IntelligentScenario,long ts,long tsplus) throws Exception {
 		frownum = positionmap.get("frownum");
 		erownum = positionmap.get("erownum");
 		funcnamenumnum = positionmap.get(funcname);
@@ -1110,6 +1112,7 @@ public class Util {
 		exchangemap = Util.getBank(path+bankname);
 //		轮训获取
 	    for(int i = frownum+offset ; i <= erownum; i++) {
+	    	long teresult = ts+tsplus*(i-1);
 	    	row = tarSheet.getRow(i);
 	    	tmpfuncval = Util.replaceEintoC(row.getCell(funcnamenumnum).getStringCellValue().trim());
 //			tmpsubfuncval = row.getCell(subfunnamenum).getStringCellValue();
@@ -1199,7 +1202,7 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
 												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -1227,7 +1230,7 @@ public class Util {
 //										造串入口，返回一个串
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //										复制写
 										for(int l = 0; l <= copytimesval; l++) {
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -1267,7 +1270,7 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
 												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -1305,7 +1308,7 @@ public class Util {
 //									造串入口，返回一个串
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //									复制写
 									for(int l = 0; l <= copytimesval; l++) {
 										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -1392,7 +1395,7 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //											写一次
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
@@ -1407,7 +1410,7 @@ public class Util {
 
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //										写一次
 										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										orgibw.flush();
@@ -1441,7 +1444,7 @@ public class Util {
 //											造串入口，返回一个串
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //											写一次
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
@@ -1475,7 +1478,7 @@ public class Util {
 //									造串入口，返回一个串
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //									写一次
 									orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 									orgibw.flush();
@@ -1582,7 +1585,7 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
 												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -1600,7 +1603,7 @@ public class Util {
 
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //										复制写
 										for(int l = 0; l <= copytimesval; l++) {
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -1638,7 +1641,7 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
 												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -1675,7 +1678,7 @@ public class Util {
 //									造串入口，返回一个串
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //									复制写
 									for(int l = 0; l <= copytimesval; l++) {
 										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -1760,7 +1763,7 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //											写一次
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
@@ -1775,7 +1778,7 @@ public class Util {
 
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //										写一次
 										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										orgibw.flush();
@@ -1810,7 +1813,7 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //											写一次
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
@@ -1844,7 +1847,7 @@ public class Util {
 //									造串入口，返回一个串
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
 //									写一次
 									orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 									orgibw.flush();
@@ -2115,9 +2118,13 @@ public class Util {
 //				portrait用户画像使用
 				type = 12;
 			}
-//			if(Jversion.equals(Jbasev[12]) || Jversion == Jbasev[12]) {
+			if(Jversion.equals(Jbasev[12]) || Jversion == Jbasev[12]) {
+//				IntelligentScenario情景智能使用
+				type = 13;
+			}
+//			if(Jversion.equals(Jbasev[13]) || Jversion == Jbasev[13]) {
 //				Jbaseversion = V2.XX为2.0JSON ETL清洗使用
-//				type = 13;
+//				type = 14;
 //			}
 		}else {
 			System.out.println("!!!!!!!! JSON base Version setting is not correct please check Main.java —— "
@@ -2132,7 +2139,8 @@ public class Util {
 	public static String makeJsonStr(Map<String, String> exchangemap,String[] envstr145,String[] envstr100,
 			String[] gpsstr145,String[] gpsstr100,String[] pagestr145,String[] pagestr100,String[] errstr100,
 			String sheetname,String tmpfuncval,String tmptestpointval,String tmpJversionval,String[] Jbasev,
-			String[] actor,String[] decice,String[] envtsp,String[] evttsp,String[] portrait1,String[] portrait2) {
+			String[] actor,String[] decice,String[] envtsp,String[] evttsp,String[] portrait1,String[] portrait2,
+			String[] IntelligentScenario,long teresult) {
 		String Json = "";
 		Map<String, String> envmap145 = new HashMap<String, String>();
 		Map<String, String> gpsmap145 = new HashMap<String, String>();
@@ -2152,6 +2160,7 @@ public class Util {
 		Map<String, String> actormaptsp = new HashMap<String, String>();
 		Map<String, String> evtmaptsp = new HashMap<String, String>();
 		Map<String, String> devmaptsp = new HashMap<String, String>();
+		Map<String, String> IntelligentScenariomap = new HashMap<String, String>();
 		ArrayList<Map<String, String>> gps100list = new ArrayList<Map<String, String>>();
 		ArrayList<Map<String, String>> page100list = new ArrayList<Map<String, String>>();
 		ArrayList<Map<String, String>> err100list = new ArrayList<Map<String, String>>();
@@ -2167,6 +2176,8 @@ public class Util {
 		JSONObject jsonactormaptsp = null;
 		JSONObject jsonevtmaptsp = null;
 		JSONObject jsondevmaptsp = null;
+		
+		JSONObject jsonIntelligentScenariomap = null;
 
 		evtdetailmap1.put("item_name", exchangemap.get("item_name"));
 		evtdetailmap1.put("item_value", exchangemap.get("item_value"));
@@ -2732,6 +2743,28 @@ public class Util {
 				Json = jportraitmap.toString();
 			break;
 			case 13:
+//				IntelligentScenario情景智能拼接使用。
+				for(int i = 0; i < IntelligentScenario.length; i++) {
+					String key = IntelligentScenario[i];
+					if(key.equals("reportTime") || key == "reportTime") {
+//						System.out.println("Fri in + " + exchangemap.get(key));
+						if(exchangemap.get(key).endsWith("001")) {
+//							System.out.println("001 in");
+							IntelligentScenariomap.put(key, exchangemap.get(key));
+						}else {				
+//							System.out.println("else in");
+							IntelligentScenariomap.put(key, teresult+"");
+						}
+					}else {						
+						IntelligentScenariomap.put(key, exchangemap.get(key));
+					}
+//					System.out.println(key);
+//					System.out.println(exchangemap.get(key));
+				}
+				jsonIntelligentScenariomap = JSONObject.fromObject(IntelligentScenariomap);
+				Json = jsonIntelligentScenariomap.toString();
+			break;
+			case 14:
 //				预留2.XXJSON ETL清洗拼接使用。
 			
 			break;

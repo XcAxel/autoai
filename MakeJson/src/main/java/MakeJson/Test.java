@@ -13,25 +13,35 @@ import net.sf.json.JSONObject;
 
 public class Test {
 	public static void main(String[] args) throws Exception {
-		String path = "Source/";
-		String basepath = "Baseinfo/";
-		String basename = basepath +"baseinfo.txt";
-		String[] tmp = {};
-		File f = new File(path+basename);
-		FileReader fr = new FileReader(f);
-		BufferedReader br = new BufferedReader(fr);
-		String s = br.readLine();
-		while(s != null) {
-			System.out.println(s);
-			s = br.readLine();
-//			if(s!=null && s.contains("portrait1=")) {
-//				tmp = s.split(",");
-//			}
-		}
+//		String path = "Source/";
+//		String basepath = "Baseinfo/";
+//		String basename = basepath +"baseinfo.txt";
+//		String[] tmp = {};
+//		File f = new File(path+basename);
+//		FileReader fr = new FileReader(f);
+//		BufferedReader br = new BufferedReader(fr);
+//		String s = br.readLine();
+//		while(s != null) {
+//			System.out.println(s);
+//			s = br.readLine();
+////			if(s!=null && s.contains("portrait1=")) {
+////				tmp = s.split(",");
+////			}
+//		}
 		
 //		for(String stm : tmp) {
 //			System.out.println(stm);
 //		}
+		
+		long tmp = 1567562401000l;
+		String tmp1 = tmp + "";
+		if(tmp1.endsWith("000")) {
+			System.out.println("Pass");
+		}else {
+			System.out.println("FAIL");
+		}
+		
+		
 	}
 
 }
