@@ -33,13 +33,8 @@ public class Test {
 //			System.out.println(stm);
 //		}
 		
-		long tmp = 1567562401000l;
-		String tmp1 = tmp + "";
-		if(tmp1.endsWith("000")) {
-			System.out.println("Pass");
-		}else {
-			System.out.println("FAIL");
-		}
+		String tmp = "012345";
+		System.out.println(tmp.substring(0,2));
 		
 		
 	}

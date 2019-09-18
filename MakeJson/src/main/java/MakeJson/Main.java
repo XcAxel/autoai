@@ -44,10 +44,7 @@ public class Main {
 //		String defaultfilename = "DataTestCase-Nomal.xls";
 		String defaultfilename = "DataTestCase-ETL.xls";
 //		String defaultfilename = "DataTestCase.xlsx";
-		
-//		情景智能时间戳，2分钟间隔
-		long ts = 1567562400000l;
-		long tsplus = 120000l;
+//		情景智能时间间隔计数
 		int count = 1;
 		
 //		标准文件
@@ -96,7 +93,9 @@ public class Main {
 
 //		情景智能字段：
 		String[] IntelligentScenario = basemap.get("IntelligentScenario").split(",");
-		
+//		时间戳
+		long ts = Long.parseLong(basemap.get("startTS"));
+		long tsplus = Long.parseLong(basemap.get("timeinterval"));
 //		Kafka 配置信息
 		String topic = basemap.get("topic");
 //		System.out.println("TOPIC     :      "+topic);

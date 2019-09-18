@@ -37,7 +37,9 @@ public class KafkaProducerClient {
 		boolean flag = true;
 //		boolean flag = false;
 //		kafka配置
-		String topic = "gw_wedata_data_test";
+		String topic = "osp-data-origin-sy-gw-may-test";
+//		String server = "kafka1:9092,kafka2:9092,kafka3:9092";
+		String server = "xdatanode-01:9092,xdatanode-02:9092,xdatanode-03:9092";
 		String path = "Source/Kafka/";
 		String outputPath = "Source/device_id_solo.txt";
 		String allJoutputPath = "Source/AllJson_solo.txt";
@@ -63,7 +65,8 @@ public class KafkaProducerClient {
 //		Kafka配置
 		Properties props = new Properties();
 //		 props.put("bootstrap.servers", "192.168.147.120:9092,192.168.147.121:9092,192.168.147.122:9092");
-		 props.put("bootstrap.servers", "kafka1:9092,kafka2:9092,kafka3:9092");
+//		 props.put("bootstrap.servers", "xdatanode-01:9092,xdatanode-02:9092,xdatanode-03:9092");
+		 props.put("bootstrap.servers", server);
 		 //		 props.put("bootstrap.servers", "LocalHost:9092");
 		 props.put("acks", "all");
 		 props.put("retries", 0);
