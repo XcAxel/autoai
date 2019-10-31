@@ -602,6 +602,7 @@ public final class GPSBean {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -609,6 +610,7 @@ public final class GPSBean {
     public static Builder newBuilder(com.autoai.wedata.kittx.uds.log.bean.pbv2.GPSBean.GPS prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -681,10 +683,12 @@ public final class GPSBean {
         return com.autoai.wedata.kittx.uds.log.bean.pbv2.GPSBean.internal_static_com_autoai_wedata_kittx_uds_log_bean_pbv2_GPS_descriptor;
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.GPSBean.GPS getDefaultInstanceForType() {
         return com.autoai.wedata.kittx.uds.log.bean.pbv2.GPSBean.GPS.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.GPSBean.GPS build() {
         com.autoai.wedata.kittx.uds.log.bean.pbv2.GPSBean.GPS result = buildPartial();
         if (!result.isInitialized()) {
@@ -693,6 +697,7 @@ public final class GPSBean {
         return result;
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.GPSBean.GPS buildPartial() {
         com.autoai.wedata.kittx.uds.log.bean.pbv2.GPSBean.GPS result = new com.autoai.wedata.kittx.uds.log.bean.pbv2.GPSBean.GPS(this);
         result.cLon_ = cLon_;
@@ -1269,6 +1274,7 @@ public final class GPSBean {
 
     private static final com.google.protobuf.Parser<GPS>
         PARSER = new com.google.protobuf.AbstractParser<GPS>() {
+      @java.lang.Override
       public GPS parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1286,6 +1292,7 @@ public final class GPSBean {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.autoai.wedata.kittx.uds.log.bean.pbv2.GPSBean.GPS getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }

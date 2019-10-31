@@ -2808,6 +2808,7 @@ public final class EnvBean {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -2815,6 +2816,7 @@ public final class EnvBean {
     public static Builder newBuilder(com.autoai.wedata.kittx.uds.log.bean.pbv2.EnvBean.Env prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -2948,10 +2950,12 @@ public final class EnvBean {
         return com.autoai.wedata.kittx.uds.log.bean.pbv2.EnvBean.internal_static_com_autoai_wedata_kittx_uds_log_bean_pbv2_Env_descriptor;
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.EnvBean.Env getDefaultInstanceForType() {
         return com.autoai.wedata.kittx.uds.log.bean.pbv2.EnvBean.Env.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.EnvBean.Env build() {
         com.autoai.wedata.kittx.uds.log.bean.pbv2.EnvBean.Env result = buildPartial();
         if (!result.isInitialized()) {
@@ -2960,6 +2964,7 @@ public final class EnvBean {
         return result;
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.EnvBean.Env buildPartial() {
         com.autoai.wedata.kittx.uds.log.bean.pbv2.EnvBean.Env result = new com.autoai.wedata.kittx.uds.log.bean.pbv2.EnvBean.Env(this);
         int from_bitField0_ = bitField0_;
@@ -6427,6 +6432,7 @@ public final class EnvBean {
 
     private static final com.google.protobuf.Parser<Env>
         PARSER = new com.google.protobuf.AbstractParser<Env>() {
+      @java.lang.Override
       public Env parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -6444,6 +6450,7 @@ public final class EnvBean {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.autoai.wedata.kittx.uds.log.bean.pbv2.EnvBean.Env getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }

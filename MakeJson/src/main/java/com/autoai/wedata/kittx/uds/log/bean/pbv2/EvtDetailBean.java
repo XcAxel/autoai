@@ -26,8 +26,7 @@ public final class EvtDetailBean {
      * <code>string item_name = 1;</code>
      */
     java.lang.String getItemName();
-    EvtDetail build();
-	/**
+    /**
      * <pre>
      *	具体事件项字段中文名称
      * </pre>
@@ -372,6 +371,7 @@ public final class EvtDetailBean {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -379,6 +379,7 @@ public final class EvtDetailBean {
     public static Builder newBuilder(com.autoai.wedata.kittx.uds.log.bean.pbv2.EvtDetailBean.EvtDetail prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -445,10 +446,12 @@ public final class EvtDetailBean {
         return com.autoai.wedata.kittx.uds.log.bean.pbv2.EvtDetailBean.internal_static_com_autoai_wedata_kittx_uds_log_bean_pbv2_EvtDetail_descriptor;
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.EvtDetailBean.EvtDetail getDefaultInstanceForType() {
         return com.autoai.wedata.kittx.uds.log.bean.pbv2.EvtDetailBean.EvtDetail.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.EvtDetailBean.EvtDetail build() {
         com.autoai.wedata.kittx.uds.log.bean.pbv2.EvtDetailBean.EvtDetail result = buildPartial();
         if (!result.isInitialized()) {
@@ -457,6 +460,7 @@ public final class EvtDetailBean {
         return result;
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.EvtDetailBean.EvtDetail buildPartial() {
         com.autoai.wedata.kittx.uds.log.bean.pbv2.EvtDetailBean.EvtDetail result = new com.autoai.wedata.kittx.uds.log.bean.pbv2.EvtDetailBean.EvtDetail(this);
         result.itemName_ = itemName_;
@@ -751,6 +755,7 @@ public final class EvtDetailBean {
 
     private static final com.google.protobuf.Parser<EvtDetail>
         PARSER = new com.google.protobuf.AbstractParser<EvtDetail>() {
+      @java.lang.Override
       public EvtDetail parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -768,13 +773,10 @@ public final class EvtDetailBean {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.autoai.wedata.kittx.uds.log.bean.pbv2.EvtDetailBean.EvtDetail getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
-	public EvtDetail build() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
   }
 

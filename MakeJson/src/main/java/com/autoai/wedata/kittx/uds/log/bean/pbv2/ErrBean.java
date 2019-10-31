@@ -26,8 +26,7 @@ public final class ErrBean {
      * <code>string device_id = 1;</code>
      */
     java.lang.String getDeviceId();
-    Err getDefaultInstanceForType();
-	/**
+    /**
      * <pre>
      * 终端唯一识别号
      * </pre>
@@ -757,6 +756,7 @@ public final class ErrBean {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -764,6 +764,7 @@ public final class ErrBean {
     public static Builder newBuilder(com.autoai.wedata.kittx.uds.log.bean.pbv2.ErrBean.Err prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -840,10 +841,12 @@ public final class ErrBean {
         return com.autoai.wedata.kittx.uds.log.bean.pbv2.ErrBean.internal_static_com_autoai_wedata_kittx_uds_log_bean_pbv2_Err_descriptor;
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.ErrBean.Err getDefaultInstanceForType() {
         return com.autoai.wedata.kittx.uds.log.bean.pbv2.ErrBean.Err.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.ErrBean.Err build() {
         com.autoai.wedata.kittx.uds.log.bean.pbv2.ErrBean.Err result = buildPartial();
         if (!result.isInitialized()) {
@@ -852,6 +855,7 @@ public final class ErrBean {
         return result;
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.ErrBean.Err buildPartial() {
         com.autoai.wedata.kittx.uds.log.bean.pbv2.ErrBean.Err result = new com.autoai.wedata.kittx.uds.log.bean.pbv2.ErrBean.Err(this);
         result.deviceId_ = deviceId_;
@@ -1616,6 +1620,7 @@ public final class ErrBean {
 
     private static final com.google.protobuf.Parser<Err>
         PARSER = new com.google.protobuf.AbstractParser<Err>() {
+      @java.lang.Override
       public Err parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1633,6 +1638,7 @@ public final class ErrBean {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.autoai.wedata.kittx.uds.log.bean.pbv2.ErrBean.Err getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }

@@ -10,12 +10,11 @@ import java.util.Properties;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
-
 import com.alibaba.fastjson.JSONObject;
-
 import Domian.PBResultBean;
 import Domian.Protov1;
 import Domian.Protov2;
+import Domian.Protov26;
 import Util.Util;
 
 
@@ -62,6 +61,7 @@ public class KafkaMethod {
 		 String jver = "";
 		 Protov1 pv1 = new Protov1();
 		 Protov2 pv2 = new Protov2();
+		 Protov26 pv26 = new Protov26();
 		 PBResultBean pbrb = new PBResultBean();
 		 byte[] bytes = {};
 		 Producer<String, String> producer = new KafkaProducer<>(props);
@@ -103,12 +103,22 @@ public class KafkaMethod {
 						json = JSONObject.toJSONString(pbrb);
 						producer.send(new ProducerRecord<String, String>(topic, json));
 					break;
-					case "V2.4.5":
-//						For ProtocolBuff V2 Json
+					case "V2.0":
+//						For ProtocolBuff V2.0 Json
 						bytes = pv2.genPbV1Data(json);
 						pbrb.setData(bytes);
 						pbrb.setParams("2.0");
 						json = JSONObject.toJSONString(pbrb);
+//						System.out.println(json);
+						producer.send(new ProducerRecord<String, String>(topic, json));
+					break;
+					case "V2.6":
+//						For ProtocolBuff V2.6 Json
+						bytes = pv26.genPbV1Data(json);
+						pbrb.setData(bytes);
+						pbrb.setParams("2.6");
+						json = JSONObject.toJSONString(pbrb);
+//						System.out.println(json);
 						producer.send(new ProducerRecord<String, String>(topic, json));
 					break;
 					case "IntelligentScenario":

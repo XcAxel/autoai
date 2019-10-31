@@ -1,4 +1,4 @@
-基于Json 1.0版本：
+----------------------------------------基于Json 1.0版本：--------------------------------------------------
 data_id=
 uuid=uuid
 pre_server_ts=1558934778986
@@ -35,7 +35,7 @@ user_name=qazwsx
 acc_type=1
 che_name=四维
 che_type=1
-app_id=A0001
+app_id=A0202
 app_ver=V1.0
 app_package=com.autoai.car
 app_type=game
@@ -47,7 +47,7 @@ ver_code=109
 link_start_ts=1558934778986
 link_stop_ts=1558934778986
 contact_type=0
-session_id=
+session_id=fgsg
 access=f795a8a33a7a4cd0a87c88e7b6264fff
 app_start_ts=1558934778986
 app_stop_ts=1558934778986
@@ -74,6 +74,7 @@ page_id=P0001
 p_beg_ts=1558934778986
 p_end_ts=1558934778986
 evt_id=E0001
+evt_code=E0002
 evt_beg_ts=1558934778986
 evt_end_ts=1558934778986
 touch_type=2
@@ -86,10 +87,11 @@ error=errormsg
 err_ts=1558934778986
 ext=abb
 gen_ts=1558934778986
-pbVersion=1.0
-appKey=appKey
+pbVersion=2.0
+appKey=SWZLQJ100000000000000000000B0202
 parsedTs=1558934778986
-基于TSP标准字段：
+status=2
+-------------------------------------基于TSP标准字段：------------------------------------------------------
 sign=svalue
 id=1234567890
 tdata_id=
@@ -172,7 +174,7 @@ event_desc={}
 event_time=1970-01-01
 attach=attchment
 data_gen_time=1558934778986
-用户画像JSON：
+--------------------------------------------------用户画像JSON：------------------------------------------
 SteeringWheelAngle=1.5
 vehicleType=VAN
 tripId=10000
@@ -560,7 +562,7 @@ EngSpd=1000.0
 T_BATTValid=null
 EngStsValid=null
 EPBSts=null
-情景智能JSON：
+---------------------------------------------情景智能JSON：--------------------------------------------------
 accStatus=32
 serviceId=18
 instantConsumption=50.0

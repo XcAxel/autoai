@@ -72,6 +72,7 @@ public class Main {
 //		env内字段
 		String[] evnstr145 = basemap.get("evnstr145").split(",");
 		String[] evnstr100 = basemap.get("evnstr100").split(",");
+		String[] evnstr200 = basemap.get("evnstr200").split(",");
 //		gps内字段
 		String[] gpsstr145 = basemap.get("gpsstr145").split(",");
 		String[] gpsstr100 = basemap.get("gpsstr100").split(",");
@@ -212,7 +213,7 @@ public class Main {
 										funcname, testpointname, inputcontentname, iscopy, copytimes, Jversion, path,casepath, 
 										orgibw, defaultmap, exchangemap, evnstr145, evnstr100, gpsstr145, gpsstr100, pagestr145, 
 										pagestr100, errstr100,Jbasev,isjumpname,isjumpnamenum,isjumpval,tmpisjumpval,actor,
-										decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,ts,tsplus);
+										decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,ts,tsplus,evnstr200);
 								System.out.println();
 								System.out.println("######## "+ sheetname + "'s case is finished. ########");
 								System.out.println();
@@ -280,7 +281,7 @@ public class Main {
 										funcname, testpointname, inputcontentname, iscopy, copytimes, Jversion, path,casepath, 
 										orgibw, defaultmap, exchangemap, evnstr145,evnstr100, gpsstr145,gpsstr100, pagestr145,
 										pagestr100,errstr100,Jbasev,isjumpname,isjumpnamenum,isjumpval,tmpisjumpval,actor,
-										decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,ts,tsplus);
+										decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,ts,tsplus,evnstr200);
 								System.out.println();
 								System.out.println("######## "+ sheetname + "'s case is finished. ########");
 								System.out.println();

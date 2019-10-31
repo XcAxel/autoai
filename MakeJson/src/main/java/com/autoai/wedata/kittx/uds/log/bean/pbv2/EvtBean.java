@@ -651,6 +651,7 @@ public final class EvtBean {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -658,6 +659,7 @@ public final class EvtBean {
     public static Builder newBuilder(com.autoai.wedata.kittx.uds.log.bean.pbv2.EvtBean.Evt prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -735,10 +737,12 @@ public final class EvtBean {
         return com.autoai.wedata.kittx.uds.log.bean.pbv2.EvtBean.internal_static_com_autoai_wedata_kittx_uds_log_bean_pbv2_Evt_descriptor;
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.EvtBean.Evt getDefaultInstanceForType() {
         return com.autoai.wedata.kittx.uds.log.bean.pbv2.EvtBean.Evt.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.EvtBean.Evt build() {
         com.autoai.wedata.kittx.uds.log.bean.pbv2.EvtBean.Evt result = buildPartial();
         if (!result.isInitialized()) {
@@ -747,6 +751,7 @@ public final class EvtBean {
         return result;
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.EvtBean.Evt buildPartial() {
         com.autoai.wedata.kittx.uds.log.bean.pbv2.EvtBean.Evt result = new com.autoai.wedata.kittx.uds.log.bean.pbv2.EvtBean.Evt(this);
         int from_bitField0_ = bitField0_;
@@ -1580,6 +1585,7 @@ public final class EvtBean {
 
     private static final com.google.protobuf.Parser<Evt>
         PARSER = new com.google.protobuf.AbstractParser<Evt>() {
+      @java.lang.Override
       public Evt parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1597,6 +1603,7 @@ public final class EvtBean {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.autoai.wedata.kittx.uds.log.bean.pbv2.EvtBean.Evt getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }

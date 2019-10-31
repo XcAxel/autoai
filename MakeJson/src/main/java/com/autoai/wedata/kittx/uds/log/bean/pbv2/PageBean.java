@@ -448,6 +448,7 @@ public final class PageBean {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -455,6 +456,7 @@ public final class PageBean {
     public static Builder newBuilder(com.autoai.wedata.kittx.uds.log.bean.pbv2.PageBean.Page prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -523,10 +525,12 @@ public final class PageBean {
         return com.autoai.wedata.kittx.uds.log.bean.pbv2.PageBean.internal_static_com_autoai_wedata_kittx_uds_log_bean_pbv2_Page_descriptor;
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.PageBean.Page getDefaultInstanceForType() {
         return com.autoai.wedata.kittx.uds.log.bean.pbv2.PageBean.Page.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.PageBean.Page build() {
         com.autoai.wedata.kittx.uds.log.bean.pbv2.PageBean.Page result = buildPartial();
         if (!result.isInitialized()) {
@@ -535,6 +539,7 @@ public final class PageBean {
         return result;
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.PageBean.Page buildPartial() {
         com.autoai.wedata.kittx.uds.log.bean.pbv2.PageBean.Page result = new com.autoai.wedata.kittx.uds.log.bean.pbv2.PageBean.Page(this);
         result.pageCode_ = pageCode_;
@@ -923,6 +928,7 @@ public final class PageBean {
 
     private static final com.google.protobuf.Parser<Page>
         PARSER = new com.google.protobuf.AbstractParser<Page>() {
+      @java.lang.Override
       public Page parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -940,6 +946,7 @@ public final class PageBean {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.autoai.wedata.kittx.uds.log.bean.pbv2.PageBean.Page getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }

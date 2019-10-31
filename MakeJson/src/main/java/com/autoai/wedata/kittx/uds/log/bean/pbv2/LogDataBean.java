@@ -688,6 +688,7 @@ public final class LogDataBean {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -695,6 +696,7 @@ public final class LogDataBean {
     public static Builder newBuilder(com.autoai.wedata.kittx.uds.log.bean.pbv2.LogDataBean.LogData prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -765,10 +767,12 @@ public final class LogDataBean {
         return com.autoai.wedata.kittx.uds.log.bean.pbv2.LogDataBean.internal_static_com_autoai_wedata_kittx_uds_log_bean_pbv2_LogData_descriptor;
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.LogDataBean.LogData getDefaultInstanceForType() {
         return com.autoai.wedata.kittx.uds.log.bean.pbv2.LogDataBean.LogData.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.LogDataBean.LogData build() {
         com.autoai.wedata.kittx.uds.log.bean.pbv2.LogDataBean.LogData result = buildPartial();
         if (!result.isInitialized()) {
@@ -777,6 +781,7 @@ public final class LogDataBean {
         return result;
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.LogDataBean.LogData buildPartial() {
         com.autoai.wedata.kittx.uds.log.bean.pbv2.LogDataBean.LogData result = new com.autoai.wedata.kittx.uds.log.bean.pbv2.LogDataBean.LogData(this);
         int from_bitField0_ = bitField0_;
@@ -1473,6 +1478,7 @@ public final class LogDataBean {
 
     private static final com.google.protobuf.Parser<LogData>
         PARSER = new com.google.protobuf.AbstractParser<LogData>() {
+      @java.lang.Override
       public LogData parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1490,6 +1496,7 @@ public final class LogDataBean {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.autoai.wedata.kittx.uds.log.bean.pbv2.LogDataBean.LogData getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }

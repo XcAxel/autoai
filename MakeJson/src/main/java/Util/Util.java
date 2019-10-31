@@ -113,7 +113,8 @@ public class Util {
 			Map<String, String> defaultmap,Map<String, String> exchangemap,String[] envstr145,String[] envstr100,
 			String[] gpsstr145,String[] gpsstr100,String[] pagestr145,String[] pagestr100,String[] errstr100,String[] Jbasev,
 			String isjumpname,int isjumpnamenum,String isjumpval,String tmpisjumpval,String[] actor,
-			String[] decice,String[] envtsp,String[] evttsp,String[] portrait1,String[] portrait2,String[] IntelligentScenario,long ts,long tsplus) 
+			String[] decice,String[] envtsp,String[] evttsp,String[] portrait1,String[] portrait2,
+			String[] IntelligentScenario,long ts,long tsplus,String[] evnstr200) 
 					throws Exception {
 		frownum = positionmap.get("frownum");
 		erownum = positionmap.get("erownum");
@@ -253,7 +254,7 @@ public class Util {
 //											造串入口，返回一个串
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult,evnstr200);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
 												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -282,7 +283,8 @@ public class Util {
 
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+												IntelligentScenario,teresult,evnstr200);
 //										复制写
 										for(int l = 0; l <= copytimesval; l++) {
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -321,7 +323,8 @@ public class Util {
 //											System.out.println("Copy trd JV: "+tmpJversionval);
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, 
 													gpsstr100, pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, 
-													tmptestpointval, tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+													tmptestpointval, tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+													IntelligentScenario,teresult,evnstr200);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
 												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -360,7 +363,8 @@ public class Util {
 //									System.out.println("Copy fos JV: "+tmpJversionval);
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+											IntelligentScenario,teresult,evnstr200);
 //									复制写
 									for(int l = 0; l <= copytimesval; l++) {
 										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -446,7 +450,8 @@ public class Util {
 //											System.out.println("UnCopy st JV: "+tmpJversionval);
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+													IntelligentScenario,teresult,evnstr200);
 //											写一次
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
@@ -472,7 +477,8 @@ public class Util {
 //										System.out.println("UnCopy sec JV: "+tmpJversionval);
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+												IntelligentScenario,teresult,evnstr200);
 //										写一次
 										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										orgibw.flush();
@@ -508,7 +514,8 @@ public class Util {
 //											System.out.println("UnCopy trd JV: "+tmpJversionval);
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, 
 													gpsstr100, pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, 
-													tmptestpointval, tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+													tmptestpointval, tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,
+													portrait1,portrait2,IntelligentScenario,teresult,evnstr200);
 //											写一次
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
@@ -544,7 +551,8 @@ public class Util {
 //									System.out.println("UnCopy fos JV: "+tmpJversionval);
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+											IntelligentScenario,teresult,evnstr200);
 //									写一次
 									orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 									orgibw.flush();
@@ -658,7 +666,8 @@ public class Util {
 //											System.out.println("funcp st JV: "+tmpJversionval);
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+													IntelligentScenario,teresult,evnstr200);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
 												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -688,7 +697,8 @@ public class Util {
 //										System.out.println("funcp sec JV: "+tmpJversionval);
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+												IntelligentScenario,teresult,evnstr200);
 //										复制写
 										for(int l = 0; l <= copytimesval; l++) {
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -726,7 +736,8 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+													IntelligentScenario,teresult,evnstr200);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
 												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -764,7 +775,8 @@ public class Util {
 //									System.out.println("funcp fos JV: "+tmpJversionval);
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+											IntelligentScenario,teresult,evnstr200);
 //									复制写
 									for(int l = 0; l <= copytimesval; l++) {
 										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -848,7 +860,8 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,
+													portrait2,IntelligentScenario,teresult,evnstr200);
 //											写一次
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
@@ -875,7 +888,8 @@ public class Util {
 //										System.out.println("fununcp sec JV: "+tmpJversionval);
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+												IntelligentScenario,teresult,evnstr200);
 //										写一次
 										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										orgibw.flush();
@@ -911,7 +925,8 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+													IntelligentScenario,teresult,evnstr200);
 //											写一次
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
@@ -946,7 +961,8 @@ public class Util {
 //									System.out.println("fununcp fos JV: "+tmpJversionval);
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+											IntelligentScenario,teresult,evnstr200);
 //									写一次
 									orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 									orgibw.flush();
@@ -1076,7 +1092,7 @@ public class Util {
 			String[] gpsstr145,String[] gpsstr100,String[] pagestr145,String[] pagestr100,String[] errstr100,String[] Jbasev,
 			String isjumpname,int isjumpnamenum,String isjumpval,String tmpisjumpval,String[] actor,
 			String[] decice,String[] envtsp,String[] evttsp,String[] portrait1,String[] portrait2,
-			String[] IntelligentScenario,long ts,long tsplus) throws Exception {
+			String[] IntelligentScenario,long ts,long tsplus,String[] evnstr200) throws Exception {
 		frownum = positionmap.get("frownum");
 		erownum = positionmap.get("erownum");
 		funcnamenumnum = positionmap.get(funcname);
@@ -1202,7 +1218,8 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+													IntelligentScenario,teresult,evnstr200);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
 												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -1230,7 +1247,8 @@ public class Util {
 //										造串入口，返回一个串
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+												IntelligentScenario,teresult,evnstr200);
 //										复制写
 										for(int l = 0; l <= copytimesval; l++) {
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -1270,7 +1288,8 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+													IntelligentScenario,teresult,evnstr200);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
 												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -1308,7 +1327,8 @@ public class Util {
 //									造串入口，返回一个串
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+											IntelligentScenario,teresult,evnstr200);
 //									复制写
 									for(int l = 0; l <= copytimesval; l++) {
 										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -1395,7 +1415,8 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+													IntelligentScenario,teresult,evnstr200);
 //											写一次
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
@@ -1410,7 +1431,8 @@ public class Util {
 
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+												IntelligentScenario,teresult,evnstr200);
 //										写一次
 										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										orgibw.flush();
@@ -1444,7 +1466,8 @@ public class Util {
 //											造串入口，返回一个串
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+													IntelligentScenario,teresult,evnstr200);
 //											写一次
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
@@ -1478,7 +1501,8 @@ public class Util {
 //									造串入口，返回一个串
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+											IntelligentScenario,teresult,evnstr200);
 //									写一次
 									orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 									orgibw.flush();
@@ -1585,7 +1609,8 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+													IntelligentScenario,teresult,evnstr200);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
 												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -1603,7 +1628,8 @@ public class Util {
 
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+												IntelligentScenario,teresult,evnstr200);
 //										复制写
 										for(int l = 0; l <= copytimesval; l++) {
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -1641,7 +1667,8 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+													IntelligentScenario,teresult,evnstr200);
 //											复制写
 											for(int l = 0; l <= copytimesval; l++) {
 												orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -1678,7 +1705,8 @@ public class Util {
 //									造串入口，返回一个串
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+											IntelligentScenario,teresult,evnstr200);
 //									复制写
 									for(int l = 0; l <= copytimesval; l++) {
 										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
@@ -1763,7 +1791,8 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+													IntelligentScenario,teresult,evnstr200);
 //											写一次
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
@@ -1778,7 +1807,8 @@ public class Util {
 
 										String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 												pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+												tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+												IntelligentScenario,teresult,evnstr200);
 //										写一次
 										orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 										orgibw.flush();
@@ -1813,7 +1843,8 @@ public class Util {
 
 											String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 													pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+													tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+													IntelligentScenario,teresult,evnstr200);
 //											写一次
 											orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 											orgibw.flush();
@@ -1847,7 +1878,8 @@ public class Util {
 //									造串入口，返回一个串
 									String jstr = Util.makeJsonStr(exchangemap, envstr145,envstr100, gpsstr145, gpsstr100, 
 											pagestr145, pagestr100, errstr100, sheetname, tmpfuncval, tmptestpointval, 
-											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,IntelligentScenario,teresult);
+											tmpJversionval,Jbasev,actor,decice,envtsp,evttsp,portrait1,portrait2,
+											IntelligentScenario,teresult,evnstr200);
 //									写一次
 									orgibw.write(exchangemap.get("device_id") + "=" + jstr + "=" + tmpJversionval);
 									orgibw.flush();
@@ -2122,10 +2154,22 @@ public class Util {
 //				IntelligentScenario情景智能使用
 				type = 13;
 			}
-//			if(Jversion.equals(Jbasev[13]) || Jversion == Jbasev[13]) {
-//				Jbaseversion = V2.XX为2.0JSON ETL清洗使用
-//				type = 14;
-//			}
+			if(Jversion.equals(Jbasev[13]) || Jversion == Jbasev[13]) {
+//				Jbaseversion = ETL2.0为2.0JSON ETL清洗使用
+				type = 14;
+			}
+			if(Jversion.equals(Jbasev[14]) || Jversion == Jbasev[14]) {
+//				Jbaseversion = ETL2.6为2.6JSON ETL清洗使用
+				type = 15;
+			}
+			if(Jversion.equals(Jbasev[15]) || Jversion == Jbasev[15]) {
+//				Jbaseversion = V2.6为2.6JSON PB格式使用
+				type = 16;
+			}
+			if(Jversion.equals(Jbasev[16]) || Jversion == Jbasev[16]) {
+//				Jbaseversion = V2.0为2.0JSON PB格式使用
+				type = 17;
+			}
 		}else {
 			System.out.println("!!!!!!!! JSON base Version setting is not correct please check Main.java —— "
 					+ "String[] Jbasev. !!!!!!!!");
@@ -2140,7 +2184,7 @@ public class Util {
 			String[] gpsstr145,String[] gpsstr100,String[] pagestr145,String[] pagestr100,String[] errstr100,
 			String sheetname,String tmpfuncval,String tmptestpointval,String tmpJversionval,String[] Jbasev,
 			String[] actor,String[] decice,String[] envtsp,String[] evttsp,String[] portrait1,String[] portrait2,
-			String[] IntelligentScenario,long teresult) {
+			String[] IntelligentScenario,long teresult,String[] evnstr200) {
 		String Json = "";
 		Map<String, String> envmap145 = new HashMap<String, String>();
 		Map<String, String> gpsmap145 = new HashMap<String, String>();
@@ -2148,11 +2192,12 @@ public class Util {
 		Map<String, String> evtdetailmap1 = new HashMap<String, String>();
 		Map<String, String> evtdetailmap2 = new HashMap<String, String>();
 		Map<String, String> portraitmap = new HashMap<String, String>();
-		ArrayList<Map<String, String>> gps145list = new ArrayList<Map<String, String>>();
+//		ArrayList<Map<String, String>> gps145list = new ArrayList<Map<String, String>>();
 		ArrayList<Map<String, String>> page145list = new ArrayList<Map<String, String>>();
 
 		Map<String, String> envmap100 = new HashMap<String, String>();
 		Map<String, String> envmap101 = new HashMap<String, String>();
+		Map<String, String> envmap200 = new HashMap<String, String>();
 		Map<String, String> gpsmap100 = new HashMap<String, String>();
 		Map<String, String> pagemap100 = new HashMap<String, String>();
 		Map<String, String> errmap100 = new HashMap<String, String>();
@@ -2161,23 +2206,28 @@ public class Util {
 		Map<String, String> evtmaptsp = new HashMap<String, String>();
 		Map<String, String> devmaptsp = new HashMap<String, String>();
 		Map<String, String> IntelligentScenariomap = new HashMap<String, String>();
-		ArrayList<Map<String, String>> gps100list = new ArrayList<Map<String, String>>();
+//		ArrayList<Map<String, String>> gps100list = new ArrayList<Map<String, String>>();
 		ArrayList<Map<String, String>> page100list = new ArrayList<Map<String, String>>();
-		ArrayList<Map<String, String>> err100list = new ArrayList<Map<String, String>>();
+//		ArrayList<Map<String, String>> err100list = new ArrayList<Map<String, String>>();
 		ArrayList<Map<String, String>> evtdetaillist = new ArrayList<Map<String, String>>();
-		JSONArray jsongps100list = null;
+//		JSONArray jsongps100list = null;
 		JSONArray jsonpage100list = null;
-		JSONArray jsonerr100list = null;
-		JSONObject jsonenvmap145 = null;
-		JSONArray jsongps145list = null;
+//		JSONArray jsonerr100list = null;
+		JSONObject jsonenvmap145 = null; 
+		JSONObject jsonenvmap200 = null; 
+		JSONObject jsonerrmap100 = null; 
+//		JSONArray jsongps145list = null;
 		JSONArray jsonpage145list = null;
-		
+		JSONObject jsonenvmap100 = null;
+		JSONObject jsongpsmap100 = null;
+		JSONObject jsongpsmap145 = null;
 		JSONObject jsonenvmaptsp = null;
 		JSONObject jsonactormaptsp = null;
 		JSONObject jsonevtmaptsp = null;
 		JSONObject jsondevmaptsp = null;
-		
 		JSONObject jsonIntelligentScenariomap = null;
+		JSONObject jsonenvmap101 = null;
+		String tmp = null;
 
 		evtdetailmap1.put("item_name", exchangemap.get("item_name"));
 		evtdetailmap1.put("item_value", exchangemap.get("item_value"));
@@ -2214,13 +2264,15 @@ public class Util {
 					String key = errstr100[i];
 					errmap100.put(key, exchangemap.get(key));
 				}
-				gps100list.add(gpsmap100);
+//				gps100list.add(gpsmap100);
 				page100list.add(pagemap100);
-				err100list.add(errmap100);
-				JSONObject jsonenvmap100 = JSONObject.fromObject(envmap100);
-				jsongps100list=JSONArray.fromObject(gps100list);
+//				err100list.add(errmap100);
+				jsonenvmap100 = JSONObject.fromObject(envmap100);
+				jsongpsmap100 = JSONObject.fromObject(gpsmap100);
+//				jsongps100list=JSONArray.fromObject(gps100list);
 				jsonpage100list=JSONArray.fromObject(page100list);
-				jsonerr100list=JSONArray.fromObject(err100list);
+//				jsonerr100list=JSONArray.fromObject(err100list);
+				jsonerrmap100 = JSONObject.fromObject(errmap100);
 				exchangemap.put("data_id", exchangemap.get("vin")+"#"+exchangemap.get("device_id")+"#"+
 						exchangemap.get("user_id")+"#"+exchangemap.get("uuid"));
 				Json = "{"+
@@ -2255,14 +2307,14 @@ public class Util {
 							"\"app_start_ts\": \""+exchangemap.get("app_start_ts")+"\"," +
 							"\"app_record_ts\": \""+exchangemap.get("app_record_ts")+"\"," +
 							"\"first_day\": \""+exchangemap.get("first_day")+"\"," +
-							"\"gps\": "+jsongps100list.toString()+"," +
-							"\"err\": "+jsonerr100list.toString()+"," +
+							"\"gps\": ["+jsongpsmap100.toString()+"]," +
+							"\"err\": ["+jsonerrmap100.toString()+"]," +
 							"\"page\": "+jsonpage100list.toString() 
 						+"}]"
 					+"}";
 			break;
 			case 2 :
-//				V1.4.5
+//				V1.4.5  PB格式
 				for(int i = 0; i < envstr145.length; i++) {
 					String key = envstr145[i];
 					envmap145.put(key, exchangemap.get(key));
@@ -2275,10 +2327,11 @@ public class Util {
 					String key = pagestr145[i];
 					pagemap145.put(key, exchangemap.get(key));
 				}
-				gps145list.add(gpsmap145);
+//				gps145list.add(gpsmap145);
 				page145list.add(pagemap145);
 				jsonenvmap145 = JSONObject.fromObject(envmap145);
-				jsongps145list = JSONArray.fromObject(gps145list);
+				jsongpsmap145 = JSONObject.fromObject(gpsmap145);
+//				jsongps145list = JSONArray.fromObject(gps145list);
 				jsonpage145list = JSONArray.fromObject(page145list);
 				exchangemap.put("data_id", exchangemap.get("vin")+"#"+exchangemap.get("device_id")+"#"+
 						exchangemap.get("user_id")+"#"+exchangemap.get("uuid"));
@@ -2313,7 +2366,7 @@ public class Util {
 							"\"first_use\": \""+exchangemap.get("first_use")+"\","  +
 							"\"app_start_ts\": \""+exchangemap.get("app_start_ts")+"\"," +
 							"\"first_day\": \""+exchangemap.get("first_day")+"\"," +
-							"\"gps\": " + jsongps145list.toString() +","+
+							"\"gps\": [" + jsongpsmap145.toString() +"],"+
 							"\"page\": "+jsonpage145list.toString() 
 						+"}]"
 					+"}";
@@ -2348,13 +2401,15 @@ public class Util {
 				exchangemap.put("data_id", exchangemap.get("vin")+"#"+exchangemap.get("device_id")+"#"+
 						exchangemap.get("user_id")+"#"+exchangemap.get("uuid"));
 
-				gps100list.add(gpsmap100);
+//				gps100list.add(gpsmap100);
 				page100list.add(pagemap100);
-				err100list.add(errmap100);
-				JSONObject jsonenvmap101 = JSONObject.fromObject(envmap101);
-				jsongps100list = JSONArray.fromObject(gps100list);
+//				err100list.add(errmap100);
+				jsonenvmap101 = JSONObject.fromObject(envmap101);
+				jsongpsmap100 = JSONObject.fromObject(errmap100);
+//				jsongps100list = JSONArray.fromObject(gps100list);
 				jsonpage100list = JSONArray.fromObject(page100list);
-				jsonerr100list = JSONArray.fromObject(err100list);
+//				jsonerr100list = JSONArray.fromObject(err100list);
+				jsonerrmap100 = JSONObject.fromObject(errmap100);
 				Json = "{"+
 						"\"data_id\": \""+exchangemap.get("data_id")+"\"," +
 						"\"ext\": \""+exchangemap.get("ext")+"\"," +
@@ -2387,8 +2442,8 @@ public class Util {
 							"\"app_start_ts\": \""+exchangemap.get("app_start_ts")+"\"," +
 							"\"app_record_ts\": \""+exchangemap.get("app_record_ts")+"\"," +
 							"\"first_day\": \""+exchangemap.get("first_day")+"\"," +
-							"\"gps\": "+jsongps100list.toString()+"," +
-							"\"err\": "+jsonerr100list.toString()+"," +
+							"\"gps\": ["+jsongpsmap100.toString()+"]," +
+							"\"err\": ["+jsonerrmap100.toString()+"]," +
 							"\"page\": "+jsonpage100list.toString() 
 						+"}]"
 					+"}";
@@ -2409,10 +2464,11 @@ public class Util {
 					String key = pagestr100[i];
 					pagemap100.put(key, exchangemap.get(key));
 				}
-				gps100list.add(gpsmap100);
+//				gps100list.add(gpsmap100);
 				page100list.add(pagemap100);
 				jsonenvmap100 = JSONObject.fromObject(envmap100);
-				jsongps100list=JSONArray.fromObject(gps100list);
+				jsongpsmap100 = JSONObject.fromObject(gpsmap100);
+//				jsongps100list=JSONArray.fromObject(gps100list);
 				jsonpage100list=JSONArray.fromObject(page100list);
 				exchangemap.put("data_id", exchangemap.get("vin")+"#"+exchangemap.get("device_id")+"#"+
 						exchangemap.get("user_id")+"#"+exchangemap.get("uuid"));
@@ -2446,7 +2502,7 @@ public class Util {
 							"\"first_use\": \""+exchangemap.get("first_use")+"\","  +
 							"\"app_start_ts\": \""+exchangemap.get("app_start_ts")+"\"," +
 							"\"first_day\": \""+exchangemap.get("first_day")+"\"," +
-							"\"gps\": "+jsongps100list.toString()+"," +
+							"\"gps\": ["+jsongpsmap100.toString()+"]," +
 							"\"page\": "+jsonpage100list.toString() 
 						+"}]"
 					+"}"
@@ -2507,9 +2563,10 @@ public class Util {
 					String key = pagestr100[i];
 					pagemap100.put(key, exchangemap.get(key));
 				}
-				gps100list.add(gpsmap100);
+//				gps100list.add(gpsmap100);
 				page100list.add(pagemap100);
-				jsongps100list=JSONArray.fromObject(gps100list);
+//				jsongps100list=JSONArray.fromObject(gps100list);
+				jsongpsmap100 = JSONObject.fromObject(gpsmap100);
 				jsonpage100list=JSONArray.fromObject(page100list);
 				exchangemap.put("data_id", exchangemap.get("vin")+"#"+exchangemap.get("device_id")+"#"+
 						exchangemap.get("user_id")+"#"+exchangemap.get("uuid"));
@@ -2543,7 +2600,7 @@ public class Util {
 							"\"first_use\": \""+exchangemap.get("first_use")+"\","  +
 							"\"app_start_ts\": \""+exchangemap.get("app_start_ts")+"\"," +
 							"\"first_day\": \""+exchangemap.get("first_day")+"\"," +
-							"\"gps\": "+jsongps100list.toString()+"," +
+							"\"gps\": ["+jsongpsmap100.toString()+"]," +
 							"\"page\": "+jsonpage100list.toString() 
 						+"}]"
 					+"}"
@@ -2564,9 +2621,10 @@ public class Util {
 					String key = pagestr100[i];
 					pagemap100.put(key, exchangemap.get(key));
 				}
-				gps100list.add(gpsmap100);
+//				gps100list.add(gpsmap100);
 				page100list.add(pagemap100);
-				jsongps100list=JSONArray.fromObject(gps100list);
+				jsongpsmap100 = JSONObject.fromObject(gpsmap100);
+//				jsongps100list=JSONArray.fromObject(gps100list);
 				jsonpage100list=JSONArray.fromObject(page100list);
 				exchangemap.put("data_id", exchangemap.get("vin")+"#"+exchangemap.get("device_id")+"#"+
 						exchangemap.get("user_id")+"#"+exchangemap.get("uuid"));
@@ -2600,7 +2658,7 @@ public class Util {
 							"\"first_use\": \""+exchangemap.get("first_use")+"\","  +
 							"\"app_start_ts\": \""+exchangemap.get("app_start_ts")+"\"," +
 							"\"first_day\": \""+exchangemap.get("first_day")+"\"," +
-							"\"gps\": "+jsongps100list.toString()+"," +
+							"\"gps\": ["+jsongpsmap100.toString()+"]," +
 							"\"page\": "+jsonpage100list.toString() 
 						+"}]"
 					+"}"
@@ -2621,9 +2679,10 @@ public class Util {
 					String key = pagestr100[i];
 					pagemap100.put(key, exchangemap.get(key));
 				}
-				gps100list.add(gpsmap100);
+//				gps100list.add(gpsmap100);
 				page100list.add(pagemap100);
-				jsongps100list=JSONArray.fromObject(gps100list);
+				jsongpsmap100 = JSONObject.fromObject(gpsmap100);
+//				jsongps100list=JSONArray.fromObject(gps100list);
 				jsonpage100list=JSONArray.fromObject(page100list);
 				exchangemap.put("data_id", exchangemap.get("vin")+"#"+exchangemap.get("device_id")+"#"+
 						exchangemap.get("user_id")+"#"+exchangemap.get("uuid"));
@@ -2657,7 +2716,7 @@ public class Util {
 							"\"first_use\": \""+exchangemap.get("first_use")+"\","  +
 							"\"app_start_ts\": \""+exchangemap.get("app_start_ts")+"\"," +
 							"\"first_day\": \""+exchangemap.get("first_day")+"\"," +
-							"\"gps\": "+jsongps100list.toString()+"," +
+							"\"gps\": ["+jsongpsmap100.toString()+"]," +
 							"\"page\": "+jsonpage100list.toString() 
 						+"}]"
 					+"}"
@@ -2765,8 +2824,296 @@ public class Util {
 				Json = jsonIntelligentScenariomap.toString();
 			break;
 			case 14:
-//				预留2.XXJSON ETL清洗拼接使用。
-			
+//				2.0JSON ETL清洗拼接使用。
+				for(int i = 0; i < evnstr200.length; i++) {
+					String key = evnstr200[i];
+//					System.out.println(key);
+					envmap200.put(key, exchangemap.get(key));
+				}
+				for(int i = 0; i < gpsstr100.length; i++) {
+					String key = gpsstr100[i];
+//					System.out.println(key);
+					gpsmap100.put(key, exchangemap.get(key));
+				}
+				for(int i = 0; i < pagestr100.length; i++) {
+					String key = pagestr100[i];
+					pagemap100.put(key, exchangemap.get(key));
+				}
+				for(int i = 0; i < errstr100.length; i++) {
+					String key = errstr100[i];
+					errmap100.put(key, exchangemap.get(key));
+				}
+//				err100list.add(errmap100);
+//				gps100list.add(gpsmap100);
+				page100list.add(pagemap100);
+//				jsongps100list=JSONArray.fromObject(gps100list);
+				jsongpsmap100 = JSONObject.fromObject(gpsmap100);
+				jsonpage100list=JSONArray.fromObject(page100list);
+//				jsonerr100list=JSONArray.fromObject(err100list);
+				jsonenvmap200 = JSONObject.fromObject(envmap200);
+				jsonerrmap100 = JSONObject.fromObject(errmap100);
+//				System.out.println(jsonenvmap200.toString());
+				tmp = jsonenvmap200.toString().split("}")[0];
+				exchangemap.put("data_id", exchangemap.get("vin")+"#"+exchangemap.get("device_id")+"#"+
+						exchangemap.get("user_id")+"#"+exchangemap.get("uuid"));
+//				System.out.println(jsonerrmap100.toString());
+				Json = "{\"datas\": [{"+
+						"\"data_id\": \""+exchangemap.get("data_id")+"\"," +
+						"\"ext\": \""+exchangemap.get("ext")+"\"," +
+						"\"gen_ts\": \""+exchangemap.get("gen_ts")+"\"," +
+						"\"env\": "+tmp+",\"gps\": [" +jsongpsmap100.toString()+"]},"+
+						"\"track\": [{"+
+							"\"evt\": [{"+
+								"\"evt_beg_ts\": \""+exchangemap.get("evt_beg_ts")+"\"," +
+								"\"evt_detail\": "+jsonevtdetaillist.toString()+"," +
+								"\"evt_end_ts\": \""+exchangemap.get("evt_end_ts")+"\"," +
+								"\"touch_type\": \""+exchangemap.get("touch_type")+"\"," +
+								"\"evt_code\": \""+exchangemap.get("evt_code") +"\""
+							+"}],"+
+							"\"app_stop_ts\": \""+exchangemap.get("app_stop_ts")+"\"," +
+							"\"is_update\": \""+exchangemap.get("is_update")+"\"," +
+							"\"is_first\": \""+exchangemap.get("is_first")+"\"," +
+							"\"session_id\": \""+exchangemap.get("session_id")+"\","  +
+							"\"first_use\": \""+exchangemap.get("first_use")+"\","  +
+							"\"app_start_ts\": \""+exchangemap.get("app_start_ts")+"\"," +
+							"\"first_day\": \""+exchangemap.get("first_day")+"\"," +
+							"\"app_id\": \""+exchangemap.get("app_id")+"\"," +
+							"\"app_ver\": \""+exchangemap.get("app_ver")+"\"," +
+							"\"app_package\": \""+exchangemap.get("app_package")+"\"," +
+							"\"ver_code\": \""+exchangemap.get("ver_code")+"\"," +
+							"\"app_type\": \""+exchangemap.get("app_type")+"\"," +
+							"\"che_name\": \""+exchangemap.get("che_name")+"\"," +
+							"\"che_type\": \""+exchangemap.get("che_type")+"\"," +
+							"\"keep_alive\": \""+exchangemap.get("keep_alive")+"\"," +
+							"\"user_id\": \""+exchangemap.get("user_id")+"\"," +
+							"\"access\": \""+exchangemap.get("access")+"\"," +
+							"\"acc_type\": \""+exchangemap.get("acc_type")+"\"," +
+							"\"c_store_size\": \""+exchangemap.get("c_store_size")+"\"," +
+							"\"c_mem_size\": \""+exchangemap.get("c_mem_size")+"\"," +
+							"\"user_name\": \""+exchangemap.get("user_name")+"\"," +
+							"\"err\": ["+jsonerrmap100.toString()+"]," +
+							"\"page\": "+jsonpage100list.toString() 
+						+"}]"
+					+"}"
+					+ "],"+
+					"\"pbVersion\": \""+exchangemap.get("pbVersion")+"\"," +
+					"\"appKey\": \""+exchangemap.get("appKey")+"\"," +
+					"\"parsedTs\": \""+exchangemap.get("parsedTs")+"\"" +
+					"}";
+			break;
+			case 15:
+//				2.6JSON ETL清洗拼接使用。与2.0区别在于多一个status字段，其他不变。
+				for(int i = 0; i < evnstr200.length; i++) {
+					String key = evnstr200[i];
+//					System.out.println(key);
+					envmap200.put(key, exchangemap.get(key));
+				}
+				for(int i = 0; i < gpsstr100.length; i++) {
+					String key = gpsstr100[i];
+//					System.out.println(key);
+					gpsmap100.put(key, exchangemap.get(key));
+				}
+				for(int i = 0; i < pagestr100.length; i++) {
+					String key = pagestr100[i];
+					pagemap100.put(key, exchangemap.get(key));
+				}
+				for(int i = 0; i < errstr100.length; i++) {
+					String key = errstr100[i];
+					errmap100.put(key, exchangemap.get(key));
+				}
+//				err100list.add(errmap100);
+//				gps100list.add(gpsmap100);
+				page100list.add(pagemap100);
+//				jsongps100list=JSONArray.fromObject(gps100list);
+				jsongpsmap100 = JSONObject.fromObject(gpsmap100);
+				jsonpage100list=JSONArray.fromObject(page100list);
+//				jsonerr100list=JSONArray.fromObject(err100list);
+				jsonenvmap200 = JSONObject.fromObject(envmap200);
+				jsonerrmap100 = JSONObject.fromObject(errmap100);
+//				System.out.println(jsonenvmap200.toString());
+				tmp = jsonenvmap200.toString().split("}")[0];
+				exchangemap.put("data_id", exchangemap.get("vin")+"#"+exchangemap.get("device_id")+"#"+
+						exchangemap.get("user_id")+"#"+exchangemap.get("uuid"));
+				Json = "{\"datas\": [{"+
+						"\"data_id\": \""+exchangemap.get("data_id")+"\"," +
+						"\"ext\": \""+exchangemap.get("ext")+"\"," +
+						"\"status\": \""+exchangemap.get("status")+"\"," + 
+						"\"gen_ts\": \""+exchangemap.get("gen_ts")+"\"," +
+						"\"env\": "+tmp+",\"gps\": [" +jsongpsmap100.toString()+"]},"+
+						"\"track\": [{"+
+							"\"evt\": [{"+
+								"\"evt_beg_ts\": \""+exchangemap.get("evt_beg_ts")+"\"," +
+								"\"evt_detail\": "+jsonevtdetaillist.toString()+"," +
+								"\"evt_end_ts\": \""+exchangemap.get("evt_end_ts")+"\"," +
+								"\"touch_type\": \""+exchangemap.get("touch_type")+"\"," +
+								"\"evt_code\": \""+exchangemap.get("evt_code") +"\""
+							+"}],"+
+							"\"app_stop_ts\": \""+exchangemap.get("app_stop_ts")+"\"," +
+							"\"is_update\": \""+exchangemap.get("is_update")+"\"," +
+							"\"is_first\": \""+exchangemap.get("is_first")+"\"," +
+							"\"session_id\": \""+exchangemap.get("session_id")+"\","  +
+							"\"first_use\": \""+exchangemap.get("first_use")+"\","  +
+							"\"app_start_ts\": \""+exchangemap.get("app_start_ts")+"\"," +
+							"\"first_day\": \""+exchangemap.get("first_day")+"\"," +
+							"\"app_id\": \""+exchangemap.get("app_id")+"\"," +
+							"\"app_ver\": \""+exchangemap.get("app_ver")+"\"," +
+							"\"app_package\": \""+exchangemap.get("app_package")+"\"," +
+							"\"ver_code\": \""+exchangemap.get("ver_code")+"\"," +
+							"\"app_type\": \""+exchangemap.get("app_type")+"\"," +
+							"\"che_name\": \""+exchangemap.get("che_name")+"\"," +
+							"\"che_type\": \""+exchangemap.get("che_type")+"\"," +
+							"\"keep_alive\": \""+exchangemap.get("keep_alive")+"\"," +
+							"\"user_id\": \""+exchangemap.get("user_id")+"\"," +
+							"\"access\": \""+exchangemap.get("access")+"\"," +
+							"\"acc_type\": \""+exchangemap.get("acc_type")+"\"," +
+							"\"c_store_size\": \""+exchangemap.get("c_store_size")+"\"," +
+							"\"c_mem_size\": \""+exchangemap.get("c_mem_size")+"\"," +
+							"\"user_name\": \""+exchangemap.get("user_name")+"\"," +
+							"\"err\": ["+jsonerrmap100.toString()+"]," +
+							"\"page\": "+jsonpage100list.toString() 
+						+"}]"
+					+"}"
+					+ "],"+
+					"\"pbVersion\": \""+exchangemap.get("pbVersion")+"\"," +
+					"\"appKey\": \""+exchangemap.get("appKey")+"\"," + 
+					"\"parsedTs\": \""+exchangemap.get("parsedTs")+"\"" +
+					"}";
+			break;
+			case 16:
+//				V2.6JSON 用于生成原始V2.6PB埋点数据，。
+				for(int i = 0; i < evnstr200.length; i++) {
+					String key = evnstr200[i];
+//					System.out.println(key);
+					envmap200.put(key, exchangemap.get(key));
+				}
+				for(int i = 0; i < gpsstr100.length; i++) {
+					String key = gpsstr100[i];
+//					System.out.println(key);
+					gpsmap100.put(key, exchangemap.get(key));
+				}
+				for(int i = 0; i < pagestr100.length; i++) {
+					String key = pagestr100[i];
+					pagemap100.put(key, exchangemap.get(key));
+				}
+				for(int i = 0; i < errstr100.length; i++) {
+					String key = errstr100[i];
+					errmap100.put(key, exchangemap.get(key));
+				}
+				page100list.add(pagemap100);
+				jsongpsmap100 = JSONObject.fromObject(gpsmap100);
+				jsonpage100list=JSONArray.fromObject(page100list);
+				jsonenvmap200 = JSONObject.fromObject(envmap200);
+				jsonerrmap100 = JSONObject.fromObject(errmap100);
+				tmp = jsonenvmap200.toString().split("}")[0];
+				exchangemap.put("data_id", exchangemap.get("vin")+"#"+exchangemap.get("device_id")+"#"+
+						exchangemap.get("user_id")+"#"+exchangemap.get("uuid"));
+				Json = "{"+
+						"\"data_id\": \""+exchangemap.get("data_id")+"\"," +
+						"\"ext\": \""+exchangemap.get("ext")+"\"," +
+						"\"status\": \""+exchangemap.get("status")+"\"," +
+						"\"gen_ts\": \""+exchangemap.get("gen_ts")+"\"," +
+						"\"env\": "+tmp+",\"gps\": [" +jsongpsmap100.toString()+"]},"+
+						"\"track\": [{"+
+							"\"evt\": [{"+
+								"\"evt_beg_ts\": \""+exchangemap.get("evt_beg_ts")+"\"," +
+								"\"evt_detail\": "+jsonevtdetaillist.toString()+"," +
+								"\"evt_end_ts\": \""+exchangemap.get("evt_end_ts")+"\"," +
+								"\"touch_type\": \""+exchangemap.get("touch_type")+"\"," +
+								"\"evt_code\": \""+exchangemap.get("evt_code") +"\""
+							+"}],"+
+							"\"app_stop_ts\": \""+exchangemap.get("app_stop_ts")+"\"," +
+							"\"is_update\": \""+exchangemap.get("is_update")+"\"," +
+							"\"is_first\": \""+exchangemap.get("is_first")+"\"," +
+							"\"session_id\": \""+exchangemap.get("session_id")+"\","  +
+							"\"first_use\": \""+exchangemap.get("first_use")+"\","  +
+							"\"app_start_ts\": \""+exchangemap.get("app_start_ts")+"\"," +
+							"\"first_day\": \""+exchangemap.get("first_day")+"\"," +
+							"\"app_id\": \""+exchangemap.get("app_id")+"\"," +
+							"\"app_ver\": \""+exchangemap.get("app_ver")+"\"," +
+							"\"app_package\": \""+exchangemap.get("app_package")+"\"," +
+							"\"ver_code\": \""+exchangemap.get("ver_code")+"\"," +
+							"\"app_type\": \""+exchangemap.get("app_type")+"\"," +
+							"\"che_name\": \""+exchangemap.get("che_name")+"\"," +
+							"\"che_type\": \""+exchangemap.get("che_type")+"\"," +
+							"\"keep_alive\": \""+exchangemap.get("keep_alive")+"\"," +
+							"\"user_id\": \""+exchangemap.get("user_id")+"\"," +
+							"\"access\": \""+exchangemap.get("access")+"\"," +
+							"\"acc_type\": \""+exchangemap.get("acc_type")+"\"," +
+							"\"c_store_size\": \""+exchangemap.get("c_store_size")+"\"," +
+							"\"c_mem_size\": \""+exchangemap.get("c_mem_size")+"\"," +
+							"\"user_name\": \""+exchangemap.get("user_name")+"\"," +
+							"\"err\": ["+jsonerrmap100.toString()+"]," +
+							"\"page\": "+jsonpage100list.toString() 
+						+"}]"
+					+"}";
+			break;
+			case 17:
+//				V2.0JSON 用于生成原始V2.0PB埋点数据，。
+				for(int i = 0; i < evnstr200.length; i++) {
+					String key = evnstr200[i];
+//					System.out.println(key);
+					envmap200.put(key, exchangemap.get(key));
+				}
+				for(int i = 0; i < gpsstr100.length; i++) {
+					String key = gpsstr100[i];
+//					System.out.println(key);
+					gpsmap100.put(key, exchangemap.get(key));
+				}
+				for(int i = 0; i < pagestr100.length; i++) {
+					String key = pagestr100[i];
+					pagemap100.put(key, exchangemap.get(key));
+				}
+				for(int i = 0; i < errstr100.length; i++) {
+					String key = errstr100[i];
+					errmap100.put(key, exchangemap.get(key));
+				}
+				page100list.add(pagemap100);
+				jsongpsmap100 = JSONObject.fromObject(gpsmap100);
+				jsonpage100list=JSONArray.fromObject(page100list);
+				jsonenvmap200 = JSONObject.fromObject(envmap200);
+				jsonerrmap100 = JSONObject.fromObject(errmap100);
+				tmp = jsonenvmap200.toString().split("}")[0];
+				exchangemap.put("data_id", exchangemap.get("vin")+"#"+exchangemap.get("device_id")+"#"+
+						exchangemap.get("user_id")+"#"+exchangemap.get("uuid"));
+				Json = "{"+
+						"\"data_id\": \""+exchangemap.get("data_id")+"\"," +
+						"\"ext\": \""+exchangemap.get("ext")+"\"," +
+//						"\"status\": \""+exchangemap.get("status")+"\"," +
+						"\"gen_ts\": \""+exchangemap.get("gen_ts")+"\"," +
+						"\"env\": "+tmp+",\"gps\": [" +jsongpsmap100.toString()+"]},"+
+						"\"track\": [{"+
+							"\"evt\": [{"+
+								"\"evt_beg_ts\": \""+exchangemap.get("evt_beg_ts")+"\"," +
+								"\"evt_detail\": "+jsonevtdetaillist.toString()+"," +
+								"\"evt_end_ts\": \""+exchangemap.get("evt_end_ts")+"\"," +
+								"\"touch_type\": \""+exchangemap.get("touch_type")+"\"," +
+								"\"evt_code\": \""+exchangemap.get("evt_code") +"\""
+							+"}],"+
+							"\"app_stop_ts\": \""+exchangemap.get("app_stop_ts")+"\"," +
+							"\"is_update\": \""+exchangemap.get("is_update")+"\"," +
+							"\"is_first\": \""+exchangemap.get("is_first")+"\"," +
+							"\"session_id\": \""+exchangemap.get("session_id")+"\","  +
+							"\"first_use\": \""+exchangemap.get("first_use")+"\","  +
+							"\"app_start_ts\": \""+exchangemap.get("app_start_ts")+"\"," +
+							"\"first_day\": \""+exchangemap.get("first_day")+"\"," +
+							"\"app_id\": \""+exchangemap.get("app_id")+"\"," +
+							"\"app_ver\": \""+exchangemap.get("app_ver")+"\"," +
+							"\"app_package\": \""+exchangemap.get("app_package")+"\"," +
+							"\"ver_code\": \""+exchangemap.get("ver_code")+"\"," +
+							"\"app_type\": \""+exchangemap.get("app_type")+"\"," +
+							"\"che_name\": \""+exchangemap.get("che_name")+"\"," +
+							"\"che_type\": \""+exchangemap.get("che_type")+"\"," +
+							"\"keep_alive\": \""+exchangemap.get("keep_alive")+"\"," +
+							"\"user_id\": \""+exchangemap.get("user_id")+"\"," +
+							"\"access\": \""+exchangemap.get("access")+"\"," +
+							"\"acc_type\": \""+exchangemap.get("acc_type")+"\"," +
+							"\"c_store_size\": \""+exchangemap.get("c_store_size")+"\"," +
+							"\"c_mem_size\": \""+exchangemap.get("c_mem_size")+"\"," +
+							"\"user_name\": \""+exchangemap.get("user_name")+"\"," +
+							"\"err\": ["+jsonerrmap100.toString()+"]," +
+							"\"page\": "+jsonpage100list.toString() 
+						+"}]"
+					+"}";
 			break;
 			default:
 				System.out.println("!!!!!!!! Jversion not found please check " + sheetname +"——"+ tmpfuncval +"——"+ 

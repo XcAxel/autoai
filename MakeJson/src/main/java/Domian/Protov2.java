@@ -35,7 +35,7 @@ public class Protov2 {
         Pair<String, String> md5Info = getMd5String(origList);
 
         LogDataBean.LogData.Builder logDataBuilder = LogDataBean.LogData.newBuilder();
-        logDataBuilder.setAppkey("SWZLHZ0D9000000000000000000A0126");
+        logDataBuilder.setAppkey("SWZLHZ0D9000000000000000000A0120");
         logDataBuilder.setDataLength(md5Info.getValue0());
         logDataBuilder.addAllOriginData(origList);
         logDataBuilder.setSignature(md5Info.getValue1());

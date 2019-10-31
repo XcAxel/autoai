@@ -649,6 +649,7 @@ public final class OriginDataBean {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -656,6 +657,7 @@ public final class OriginDataBean {
     public static Builder newBuilder(com.autoai.wedata.kittx.uds.log.bean.pbv2.OriginDataBean.OriginData prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -733,10 +735,12 @@ public final class OriginDataBean {
         return com.autoai.wedata.kittx.uds.log.bean.pbv2.OriginDataBean.internal_static_com_autoai_wedata_kittx_uds_log_bean_pbv2_OriginData_descriptor;
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.OriginDataBean.OriginData getDefaultInstanceForType() {
         return com.autoai.wedata.kittx.uds.log.bean.pbv2.OriginDataBean.OriginData.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.OriginDataBean.OriginData build() {
         com.autoai.wedata.kittx.uds.log.bean.pbv2.OriginDataBean.OriginData result = buildPartial();
         if (!result.isInitialized()) {
@@ -745,6 +749,7 @@ public final class OriginDataBean {
         return result;
       }
 
+      @java.lang.Override
       public com.autoai.wedata.kittx.uds.log.bean.pbv2.OriginDataBean.OriginData buildPartial() {
         com.autoai.wedata.kittx.uds.log.bean.pbv2.OriginDataBean.OriginData result = new com.autoai.wedata.kittx.uds.log.bean.pbv2.OriginDataBean.OriginData(this);
         int from_bitField0_ = bitField0_;
@@ -1635,6 +1640,7 @@ public final class OriginDataBean {
 
     private static final com.google.protobuf.Parser<OriginData>
         PARSER = new com.google.protobuf.AbstractParser<OriginData>() {
+      @java.lang.Override
       public OriginData parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1652,6 +1658,7 @@ public final class OriginDataBean {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.autoai.wedata.kittx.uds.log.bean.pbv2.OriginDataBean.OriginData getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
