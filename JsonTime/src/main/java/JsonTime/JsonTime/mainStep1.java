@@ -11,8 +11,8 @@ import net.sf.json.JSONObject;
  * input:Source/ETLJson.txt  此文件JSON为ETL清洗后结果JSON
  * outputpath:Source/Step1/formatETLJson.txt
  * output format:device_id app_id app_start_ts app_stop_ts device_start_ts device_stop_ts gen_ts
- *  timeLimit app_start_ts可读时间 app_stop_ts可读时间 device_start_ts可读时间 device_stop_ts可读时间 
- *  gen_ts可读时间
+ * timeLimit app_start_ts可读时间 app_stop_ts可读时间 device_start_ts可读时间 device_stop_ts可读时间 
+ * gen_ts可读时间
  * */
 
 public class mainStep1 {
@@ -24,9 +24,11 @@ public class mainStep1 {
 		String outputfilename = "formatETLJson.txt";
 		String outpath = outputhpath+outputfilename;
 //		判断是否为当天数据。
-		String timeRange = "2019-08-08";
+		String timeRange = "2019-10-09";
 		String timeLimit = Util.getMtime(timeRange+" 23:59:59");
 		int linenum = 1;
+		JSONObject jsonObject = null;
+		String sfanal = null;
 		Util.checkDir(inputpath);
 		Util.checkInputFile(inpath);
 		Util.FileInitialize(outpath);
@@ -38,14 +40,26 @@ public class mainStep1 {
 		while(s != null) {
 			System.out.println("------------- line " + linenum + " Startting format -------------");
 			System.out.println();
-			JSONObject jsonObject = JSONObject.fromObject(s);
-			String tmp = Util.getValue(jsonObject,timeLimit);
-			bw.write(tmp);
-			bw.newLine();
-			System.out.println("------------- line " + linenum + " Endding format -------------");
-			System.out.println();
-			linenum++;
-			s = br.readLine();
+			if(s.length() > 2) {
+				if(s.contains("\"datas\"")) {
+					jsonObject = JSONObject.fromObject(s);
+					String tmp = jsonObject.getString("datas");
+					sfanal = tmp.substring(0,tmp.length()-1).substring(1);
+//					System.out.println(sfanal);
+				}else {
+					sfanal = s;
+				}
+//				System.out.println(sfanal);
+				JSONObject jsonObjectfanal = JSONObject.fromObject(sfanal);
+				String tmp = Util.getValue(jsonObjectfanal,timeLimit);
+				bw.write(tmp);
+				bw.newLine();
+				System.out.println("------------- line " + linenum + " Endding format -------------");
+				System.out.println();
+				linenum++;
+				s = br.readLine();
+			}
+			
 		}
 		bw.close();
 		fw.close();

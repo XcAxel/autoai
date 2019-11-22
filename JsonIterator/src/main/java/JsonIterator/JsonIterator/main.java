@@ -56,7 +56,10 @@ public class main {
 			tsbw.write("------------- line " + linenum + " End -------------");
 			allbw.newLine();
 			tsbw.newLine();
-			linebw.newLine();;
+			linebw.newLine();
+			allbw.newLine();
+			tsbw.newLine();
+			linebw.newLine();
 			linebw.flush();
 			System.out.println("------------- line " + linenum + " Endding format -------------");
 			System.out.println();

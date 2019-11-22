@@ -34,7 +34,7 @@ public class mainStep2 {
 		String outpath = outputpath+outputResultfilename;
 		String outpatherr = outputpath+outputErrorfilename;
 //		过滤数据使用
-		String timeRange = "2019-08-08";
+		String timeRange = "2019-10-09";
 //		5 mins * 3 = 15 mins 补填数据使用
 		final int Appdiff = 30000 * 3;
 //		5 mins * 6 = 30 mins 补填数据使用

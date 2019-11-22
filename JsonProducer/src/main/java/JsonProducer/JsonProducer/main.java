@@ -16,6 +16,8 @@ import Util.Util;
  * 	输入：Source/rightIOS.txt，rightAndroid.txt，wrong.txt
  * 	输出：Source/Result.txt
  * 	手动kafka文件夹：Source/Kafka/
+ *  static-node1:9092,static-node2:9092,static-node3:9092    
+ *  Topic:test12345
  * 
  * */
 
@@ -23,13 +25,15 @@ public class main {
 
 	public static void main(String[] args) throws Exception {
 //		Kafka发送标称
-//		boolean flag = true;
-		boolean flag = false;
-		String topic = "gw_data_test";
-		String server = "kafka1:9092,kafka2:9092,kafka3:9092";
+		boolean flag = true;
+//		boolean flag = false;
+		String topic = "autoai_faw_sy";
+		String server = "static-node1:9092,static-node2:9092,static-node3:9092";
 //		总条数，总正确条数
-		long totalnum = 30l;
-		long totalrightnum = 20l;
+		long totalnum = 1500000l;
+		long totalrightnum = 500000l;
+//		long totalnum = 30l;
+//		long totalrightnum = 10l;
 //		计数初始化
 		long writerightIOSnum = 0;
 		long writerightAndroidnum = 0;

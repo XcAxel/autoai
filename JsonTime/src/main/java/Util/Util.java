@@ -12,7 +12,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-
 import domain.User;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -66,7 +65,7 @@ public class Util {
 //	格式化时间
 	public static String getFormattime(long time) throws Exception{
 		Date date = new Date(time);
-		DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 		String tmp = sdf.format(date).replace(" ", "T");
 //		System.out.println("MSec = "+tmp); 
 		return tmp;
@@ -105,6 +104,7 @@ public class Util {
 //	JSON取值
 	public static String getValue(JSONObject jsonObject,String timeLimit) throws Exception, Exception {
 		String str = "null";
+		String aid = "null";
 		String env = jsonObject.getString("env");
 		JSONArray jsonArray = JSONArray.fromObject(jsonObject.getString("track"));
 		Object[] stemp = jsonArray.toArray();
@@ -112,7 +112,13 @@ public class Util {
 		JSONObject envObj = JSONObject.fromObject(env); 
 		JSONObject trackObj = jsonObject.fromObject(stemp[0]);	
 		String did = envObj.getString("imei");
-		String aid = envObj.getString("app_id");
+		try {
+			aid = envObj.getString("app_id");
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			aid = trackObj.getString("app_id");
+		}
 		String dstartts = envObj.getString("d_start_ts");
 		String dstarttsdate = "";
 		String dstopts = envObj.getString("d_stop_ts");

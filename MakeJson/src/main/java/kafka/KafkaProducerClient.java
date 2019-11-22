@@ -6,6 +6,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
@@ -38,9 +39,15 @@ public class KafkaProducerClient {
 		boolean flag = true;
 //		boolean flag = false;
 //		kafka配置
-		String topic = "osp-data-origin-sy-gw-may-test";
+		String basepath = "Baseinfo/";
+		String rootpath = "Source/";
+		String basename = basepath +"baseinfo.txt";
+		Map<String, String> basemap = Util.getBaseInfo(rootpath+basename);
+		String topic = basemap.get("topic");
+//		String topic = "osp-data-origin-sy-gw-may-test";
+		String server = basemap.get("server");
 //		String server = "kafka1:9092,kafka2:9092,kafka3:9092";
-		String server = "xdatanode-01:9092,xdatanode-02:9092,xdatanode-03:9092";
+//		String server = "xdatanode-01:9092,xdatanode-02:9092,xdatanode-03:9092";
 		String path = "Source/Kafka/";
 		String outputPath = "Source/device_id_solo.txt";
 		String allJoutputPath = "Source/AllJson_solo.txt";
