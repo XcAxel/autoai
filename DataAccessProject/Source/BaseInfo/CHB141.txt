@@ -1,6 +1,6 @@
 版本信息：CH141_V0.3
 mesure=0
-headline=LineNumber,KeyName,ReportTime,OriginalValue,Factor,Offset,Cal-res,Prgm-res,Differ,DifferSign
+headline=LineNumber,KeyName,ReportTime,OriginalValue,Factor,Offset,Cal-res,Prog-res,Differ,DifferSign
 errhead=LineNumber,ReportTime,KeyName,Reason
 BMS_ChrgSts_RMValid=1,0
 VehicleSpeed_RMValid=1,0

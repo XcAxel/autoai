@@ -29,7 +29,7 @@ import Util.Util;
  * */
 
 public class KafkaMethod {
-	public static void kafkaProducerMethod(String path,String sheetname,String topic,String server,boolean flag) throws Exception {
+	public static void kafkaProducerMethod(String path,String sheetname,String topic,String server,boolean flag,String sendtype) throws Exception {
 		String outputPath = "Source/device_id_"+sheetname+".txt";
 		String allJoutputPath = "Source/AllJson_"+sheetname+".txt";
 		int sum = 0;
@@ -125,7 +125,11 @@ public class KafkaMethod {
 						producer.send(new ProducerRecord<String, String>(topic, json));
 					break;	
 					default:
-						producer.send(new ProducerRecord<String, String>(topic, device_id, json));
+						if(sendtype.equals("tdj") || sendtype == "tdj") {							
+							producer.send(new ProducerRecord<String, String>(topic, device_id, json));
+						}else {							
+							producer.send(new ProducerRecord<String, String>(topic, json));
+						}
 					break;
 					}				
 				}
@@ -141,11 +145,11 @@ public class KafkaMethod {
 		producer.close();
 		if(flag) {
 			System.out.println("~~~~~~~~ Sending Completion ~~~~~~~~");
-			System.out.println("Total : " + sum + " JSONs ware Sended");
+			System.out.println("Total : " + sum + " JSONs were Sended");
 			System.out.println();
 		 }else {
 			System.out.println("~~~~~~~~ Reading Completion ~~~~~~~~");
-			System.out.println("Total : " + sum + " JSONs ware Readed");
+			System.out.println("Total : " + sum + " JSONs were Readed");
 			System.out.println();
 		 }
 	}

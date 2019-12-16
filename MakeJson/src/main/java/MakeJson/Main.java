@@ -42,7 +42,7 @@ public class Main {
 		String caseSpath = "Case/";
 //		用例文件名称
 //		String defaultfilename = "DataTestCase-Nomal.xls";
-		String defaultfilename = "DataTestCase-ETL.xls";
+		String defaultfilename = "DataTestCase-ETL-GreatWall.xls";
 //		String defaultfilename = "DataTestCase.xlsx";
 //		情景智能时间间隔计数
 		int count = 1;
@@ -99,6 +99,7 @@ public class Main {
 		long tsplus = Long.parseLong(basemap.get("timeinterval"));
 //		Kafka 配置信息
 		String topic = basemap.get("topic");
+		String sendtype = basemap.get("sendtype").trim().toLowerCase();
 //		System.out.println("TOPIC     :      "+topic);
 		String server = basemap.get("server");
 		
@@ -223,10 +224,10 @@ public class Main {
 									String input = sc.next().trim();
 									if(input.toLowerCase().equals("q") || input.toLowerCase() == "q") {
 										System.out.println("Sending data to "+topic);
-										KafkaMethod.kafkaProducerMethod(kafkapath,sheetname,topic,server,flag);										
+										KafkaMethod.kafkaProducerMethod(kafkapath,sheetname,topic,server,flag,sendtype);										
 									}else {
 										System.out.println("Sending data to "+input);
-										KafkaMethod.kafkaProducerMethod(kafkapath,sheetname,input,server,flag);
+										KafkaMethod.kafkaProducerMethod(kafkapath,sheetname,input,server,flag,sendtype);
 									}
 								}
 							}
@@ -286,11 +287,16 @@ public class Main {
 								System.out.println("######## "+ sheetname + "'s case is finished. ########");
 								System.out.println();
 								if(type.equals("2") || type == "2") {
-//									System.out.println("Press any key to Start sendding "+sheetname+"'s case JSON to kafka.\nType 'Q' to exit and countinue create JSON on next sheet : ");
-									System.out.println("Data of " + sheetname + " was stored with path : " +  kafkapath);
-									System.out.print("Please input the topic your want to send : ");
-									topic = sc.next().trim();
-									KafkaMethod.kafkaProducerMethod(kafkapath,sheetname,topic,server,flag);
+//									System.out.println("Data of " + sheetname + " was stored with path : " +  kafkapath);
+									System.out.println("Type Q to use default topic '"+topic+"' or input the new topic that you want to send : ");
+									String input = sc.next().trim();
+									if(input.toLowerCase().equals("q") || input.toLowerCase() == "q") {
+										System.out.println("Sending data to "+topic);
+										KafkaMethod.kafkaProducerMethod(kafkapath,sheetname,topic,server,flag,sendtype);										
+									}else {
+										System.out.println("Sending data to "+input);
+										KafkaMethod.kafkaProducerMethod(kafkapath,sheetname,input,server,flag,sendtype);
+									}
 								}
 							}
 						}

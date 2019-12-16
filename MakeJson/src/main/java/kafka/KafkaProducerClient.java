@@ -44,8 +44,10 @@ public class KafkaProducerClient {
 		String basename = basepath +"baseinfo.txt";
 		Map<String, String> basemap = Util.getBaseInfo(rootpath+basename);
 		String topic = basemap.get("topic");
+		String type = basemap.get("sendtype").trim().toLowerCase();
 //		String topic = "osp-data-origin-sy-gw-may-test";
 		String server = basemap.get("server");
+		System.out.println("Info : " +topic+"---"+server+"---"+type);
 //		String server = "kafka1:9092,kafka2:9092,kafka3:9092";
 //		String server = "xdatanode-01:9092,xdatanode-02:9092,xdatanode-03:9092";
 		String path = "Source/Kafka/";
@@ -163,8 +165,13 @@ public class KafkaProducerClient {
 					break;
 					case "IntelligentScenario":
 						producer.send(new ProducerRecord<String, String>(topic, json));
+					break;
 					default:
-						producer.send(new ProducerRecord<String, String>(topic, device_id, json));
+						if(type.equals("tdj") || type == "tdj") {							
+							producer.send(new ProducerRecord<String, String>(topic, device_id, json));
+						}else {							
+							producer.send(new ProducerRecord<String, String>(topic, json));
+						}
 					break;
 					}
 				}
@@ -181,11 +188,11 @@ public class KafkaProducerClient {
 		producer.close();
 		if(flag) {
 			System.out.println("~~~~~~~~ Sending Completion ~~~~~~~~");
-			System.out.println("Total : " + sum + " JSONs ware Sended");
+			System.out.println("Total : " + sum + " JSONs were Sended");
 			System.out.println();
 		 }else {
 			System.out.println("~~~~~~~~ Reading Completion ~~~~~~~~");
-			System.out.println("Total : " + sum + " JSONs ware Readed");
+			System.out.println("Total : " + sum + " JSONs were Readed");
 			System.out.println();
 		 }
 	}

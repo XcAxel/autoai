@@ -526,11 +526,11 @@ public class Util {
 	
 //	差值判断根据误差量判断
 	public static boolean mesureGap(String diff,float mesure) {
-		float tmp = Float.parseFloat(diff);
-		if(tmp-mesure != 0) {
-			return false;
-		}else {
+		float tmp = Math.abs(Float.parseFloat(diff));
+		if(tmp-0 <= mesure) {
 			return true;
+		}else {
+			return false;
 		}
 	}
 	

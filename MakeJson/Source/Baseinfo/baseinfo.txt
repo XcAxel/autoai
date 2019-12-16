@@ -24,6 +24,7 @@ IntelligentScenario=vin,userId,lon,lat,VehTotDistance,VehicleSpd,LongitudeAcc,La
 情景智能起始时间与时间间隔：
 startTS=1567562400000
 timeinterval=120000
-Kafka信息：
-topic=hz_md_pbdata_dev
+Kafka信息：sendtype标识为发送kafka格式tdj代表发送topic，deviceid，json;非tdj为topic，json
+topic=ods-lcp-ulogparsed-gw
 server=xdatanode-01:9092,xdatanode-02:9092,xdatanode-03:9092
+sendtype=tj

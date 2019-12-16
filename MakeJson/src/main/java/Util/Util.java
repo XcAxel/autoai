@@ -2375,12 +2375,12 @@ public class Util {
 //				V1.1
 				for(int i = 0; i < envstr100.length; i++) {
 					String key = envstr100[i];
-					if(key == "vin") {
+					if(key == "vin" || key.equals("vin")) {
 						envmap101.put(key, exchangemap.get("device_id"));
 						exchangemap.put(key, exchangemap.get("device_id"));
-					}else if(key == "d_start_ts"){
+					}else if(key == "d_start_ts" || key.equals("d_start_ts")){
 						envmap101.put(key, exchangemap.get("app_start_ts"));
-					}else if(key == "d_stop_ts"){
+					}else if(key == "d_stop_ts" || key.equals("d_stop_ts")){
 						envmap101.put(key, exchangemap.get("app_stop_ts"));
 					}else {
 						envmap101.put(key, exchangemap.get(key));				
@@ -2410,6 +2410,7 @@ public class Util {
 				jsonpage100list = JSONArray.fromObject(page100list);
 //				jsonerr100list = JSONArray.fromObject(err100list);
 				jsonerrmap100 = JSONObject.fromObject(errmap100);
+//				System.out.println(jsonenvmap101.toString());
 				Json = "{"+
 						"\"data_id\": \""+exchangemap.get("data_id")+"\"," +
 						"\"ext\": \""+exchangemap.get("ext")+"\"," +
