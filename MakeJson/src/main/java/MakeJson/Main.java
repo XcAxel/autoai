@@ -31,7 +31,6 @@ import kafka.KafkaMethod;
  * 9,Kafka运行后再Source中生成device_id_sheetname.txt,ALLJson_sheetname.txt,两个文件分别记录往Kafka中打的数据的device_id和JSON串。
  *10,情景智能用例如不设置reportTime，则在程序中有初始时间戳，且每条间隔2分钟，如需自己设置，则时间结尾用001表示。
  * */
-
 public class Main {
 
 	public static void main(String[] args) throws Exception {
@@ -41,8 +40,8 @@ public class Main {
 		String casepath = "DataResultFolder/";
 		String caseSpath = "Case/";
 //		用例文件名称
-//		String defaultfilename = "DataTestCase-Nomal.xls";
-		String defaultfilename = "DataTestCase-ETL-GreatWall.xls";
+		String defaultfilename = "DataTestCase-Nomal.xls";
+//		String defaultfilename = "DataTestCase-ETL-GreatWall.xls";
 //		String defaultfilename = "DataTestCase.xlsx";
 //		情景智能时间间隔计数
 		int count = 1;

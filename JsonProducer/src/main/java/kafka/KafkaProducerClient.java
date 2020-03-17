@@ -33,7 +33,7 @@ public class KafkaProducerClient {
 		boolean flag = true;
 //		boolean flag = false;
 //		kafka配置
-		String topic = "test12345";
+		String topic = "ods-lcp-ulogparsed-gw";
 		String path = "Source/Kafka/";
 //		主程序
 		int sum = 0;
@@ -45,7 +45,7 @@ public class KafkaProducerClient {
 //		Kafka配置
 		Properties props = new Properties();
 //		 props.put("bootstrap.servers", "192.168.147.120:9092,192.168.147.121:9092,192.168.147.122:9092");
-		 props.put("bootstrap.servers", "static-node1:9092,static-node2:9092,static-node3:9092");
+		 props.put("bootstrap.servers", "xdatanode-01:9092,xdatanode-02:9092,xdatanode-03:9092");
 		 //		 props.put("bootstrap.servers", "LocalHost:9092");
 		 props.put("acks", "all");
 		 props.put("retries", 0);

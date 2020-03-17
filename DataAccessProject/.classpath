@@ -2,27 +2,27 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="E:/Code/DataAccessProject/Jar/xmlbeans-2.3.0.jar"/>
-	<classpathentry kind="lib" path="E:/Code/DataAccessProject/Jar/stax-api-1.0.1.jar"/>
-	<classpathentry kind="lib" path="E:/Code/DataAccessProject/Jar/poi-scratchpad-3.8-20120326.jar"/>
-	<classpathentry kind="lib" path="E:/Code/DataAccessProject/Jar/poi-ooxml-schemas-3.8-20120326.jar"/>
-	<classpathentry kind="lib" path="E:/Code/DataAccessProject/Jar/poi-ooxml-3.8-20120326.jar"/>
-	<classpathentry kind="lib" path="E:/Code/DataAccessProject/Jar/poi-excelant-3.8-20120326.jar"/>
-	<classpathentry kind="lib" path="E:/Code/DataAccessProject/Jar/poi-examples-3.8-20120326.jar"/>
-	<classpathentry kind="lib" path="E:/Code/DataAccessProject/Jar/poi-3.8-20120326.jar"/>
-	<classpathentry kind="lib" path="E:/Code/DataAccessProject/Jar/log4j-1.2.13.jar"/>
-	<classpathentry kind="lib" path="E:/Code/DataAccessProject/Jar/junit-3.8.1.jar"/>
-	<classpathentry kind="lib" path="E:/Code/DataAccessProject/Jar/json-lib-2.4-jdk15.jar"/>
-	<classpathentry kind="lib" path="E:/Code/DataAccessProject/Jar/ezmorph-1.0.6.jar"/>
-	<classpathentry kind="lib" path="E:/Code/DataAccessProject/Jar/dom4j-1.6.jar"/>
-	<classpathentry kind="lib" path="E:/Code/DataAccessProject/Jar/dom4j-1.6.1.jar"/>
-	<classpathentry kind="lib" path="E:/Code/DataAccessProject/Jar/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="E:/Code/DataAccessProject/Jar/commons-lang-2.5.jar"/>
-	<classpathentry kind="lib" path="E:/Code/DataAccessProject/Jar/commons-lang-2.4.jar"/>
-	<classpathentry kind="lib" path="E:/Code/DataAccessProject/Jar/commons-httpclient-3.0.1.jar"/>
-	<classpathentry kind="lib" path="E:/Code/DataAccessProject/Jar/commons-collections-3.2.1.jar"/>
-	<classpathentry kind="lib" path="E:/Code/DataAccessProject/Jar/commons-codec-1.4.jar"/>
-	<classpathentry kind="lib" path="E:/Code/DataAccessProject/Jar/commons-beanutils-1.8.0.jar"/>
-	<classpathentry kind="lib" path="E:/Code/DataAccessProject/Jar/com.springsource.org.apache.commons.lang-2.4.0.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/DataAccessProject/Jar/com.springsource.org.apache.commons.lang-2.4.0.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/DataAccessProject/Jar/commons-beanutils-1.8.0.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/DataAccessProject/Jar/commons-codec-1.4.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/DataAccessProject/Jar/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/DataAccessProject/Jar/commons-httpclient-3.0.1.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/DataAccessProject/Jar/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/DataAccessProject/Jar/commons-lang-2.5.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/DataAccessProject/Jar/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/DataAccessProject/Jar/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/DataAccessProject/Jar/dom4j-1.6.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/DataAccessProject/Jar/ezmorph-1.0.6.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/DataAccessProject/Jar/json-lib-2.4-jdk15.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/DataAccessProject/Jar/junit-3.8.1.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/DataAccessProject/Jar/log4j-1.2.13.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/DataAccessProject/Jar/poi-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/DataAccessProject/Jar/poi-examples-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/DataAccessProject/Jar/poi-excelant-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/DataAccessProject/Jar/poi-ooxml-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/DataAccessProject/Jar/poi-ooxml-schemas-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/DataAccessProject/Jar/poi-scratchpad-3.8-20120326.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/DataAccessProject/Jar/stax-api-1.0.1.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/DataAccessProject/Jar/xmlbeans-2.3.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

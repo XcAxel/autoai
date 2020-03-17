@@ -1,6 +1,7 @@
 ----------------------------------------基于Json 1.0版本：--------------------------------------------------
 data_id=
 uuid=uuid
+src_kafka_topic=datatransfer
 pre_server_ts=1558934778986
 factory=长城
 country=CN
@@ -35,7 +36,7 @@ user_name=qazwsx
 acc_type=1
 che_name=四维
 che_type=1
-app_id=A0202
+app_id=A0001
 app_ver=V1.0
 app_package=com.autoai.car
 app_type=game

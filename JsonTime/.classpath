@@ -23,15 +23,15 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/Code/JsonTime/jar/com.springsource.org.apache.commons.lang-2.4.0.jar"/>
-	<classpathentry kind="lib" path="E:/Code/JsonTime/jar/commons-beanutils-1.8.0.jar"/>
-	<classpathentry kind="lib" path="E:/Code/JsonTime/jar/commons-codec-1.4.jar"/>
-	<classpathentry kind="lib" path="E:/Code/JsonTime/jar/commons-collections-3.2.1.jar"/>
-	<classpathentry kind="lib" path="E:/Code/JsonTime/jar/commons-httpclient-3.0.1.jar"/>
-	<classpathentry kind="lib" path="E:/Code/JsonTime/jar/commons-lang-2.4.jar"/>
-	<classpathentry kind="lib" path="E:/Code/JsonTime/jar/commons-lang-2.5.jar"/>
-	<classpathentry kind="lib" path="E:/Code/JsonTime/jar/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="E:/Code/JsonTime/jar/ezmorph-1.0.6.jar"/>
-	<classpathentry kind="lib" path="E:/Code/JsonTime/jar/json-lib-2.4-jdk15.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/JsonTime/jar/com.springsource.org.apache.commons.lang-2.4.0.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/JsonTime/jar/commons-beanutils-1.8.0.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/JsonTime/jar/commons-codec-1.4.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/JsonTime/jar/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/JsonTime/jar/commons-httpclient-3.0.1.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/JsonTime/jar/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/JsonTime/jar/commons-lang-2.5.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/JsonTime/jar/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/JsonTime/jar/ezmorph-1.0.6.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/JsonTime/jar/json-lib-2.4-jdk15.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

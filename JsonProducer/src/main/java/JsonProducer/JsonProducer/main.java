@@ -27,10 +27,10 @@ public class main {
 //		Kafka发送标称
 		boolean flag = true;
 //		boolean flag = false;
-		String topic = "autoai_faw_sy";
-		String server = "static-node1:9092,static-node2:9092,static-node3:9092";
+		String topic = "ods-lcp-ulogparsed-gw";
+		String server = "xdatanode-01:9092,xdatanode-02:9092,xdatanode-03:9092";
 //		总条数，总正确条数
-		long totalnum = 1500000l;
+		long totalnum = 2000000l;
 		long totalrightnum = 500000l;
 //		long totalnum = 30l;
 //		long totalrightnum = 10l;

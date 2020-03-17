@@ -23,7 +23,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/Code/JsonProducer/Jar/kafka-clients-1.1.0.jar"/>
-	<classpathentry kind="lib" path="E:/Code/JsonProducer/Jar/slf4j-api-1.7.26.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/JsonProducer/Jar/kafka-clients-1.1.0.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/JsonProducer/Jar/slf4j-api-1.7.26.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

@@ -33,8 +33,14 @@ public class Test {
 //			System.out.println(stm);
 //		}
 		
-		String tmp = "012345";
-		System.out.println(tmp.substring(0,2));
+		String tmp = "1580818281829";
+		StringBuffer sb = new StringBuffer();
+		for(int i = 0; i <= 10; i++) {
+			sb.append(" "+i+" "+tmp);
+		}
+//		String[] tmp1 = tmp.split(";");
+		System.out.println(sb);
+//		System.out.println(tmp.substring(tmp.length(),-3));
 		
 		
 	}

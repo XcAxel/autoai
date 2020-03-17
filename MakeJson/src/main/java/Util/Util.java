@@ -1109,6 +1109,7 @@ public class Util {
 //		首次获取非表头功能模块，子功能模块，测试点列的cell Value
 		row = tarSheet.getRow(frownum+offset);
 		tmpfuncval = funcnameval = Util.replaceEintoC(row.getCell(funcnamenumnum).getStringCellValue().trim());
+//		row.getCell(funcnamenumnum).setCellValue("shihio");
 //		tmpsubfuncval = subfuncnameval = row.getCell(subfunnamenum).getStringCellValue();
 		tmptestpointval = testpointval = Util.replaceEintoC(row.getCell(testpointnum).getStringCellValue().trim());
 		tmpisjumpval = isjumpval = row.getCell(isjumpnamenum).getStringCellValue().trim();
@@ -2405,7 +2406,7 @@ public class Util {
 				page100list.add(pagemap100);
 //				err100list.add(errmap100);
 				jsonenvmap101 = JSONObject.fromObject(envmap101);
-				jsongpsmap100 = JSONObject.fromObject(errmap100);
+				jsongpsmap100 = JSONObject.fromObject(gpsmap100);
 //				jsongps100list = JSONArray.fromObject(gps100list);
 				jsonpage100list = JSONArray.fromObject(page100list);
 //				jsonerr100list = JSONArray.fromObject(err100list);
@@ -2416,6 +2417,8 @@ public class Util {
 						"\"ext\": \""+exchangemap.get("ext")+"\"," +
 						"\"gen_ts\": \""+exchangemap.get("gen_ts")+"\"," +
 						"\"env\": "+jsonenvmap101.toString()+"," +
+						"\"status\": \""+exchangemap.get("status")+"\"," +
+						"\"src_kafka_topic\": \""+exchangemap.get("src_kafka_topic")+"\"," +
 						"\"track\": [{"+
 							"\"evt\": [{"+
 								"\"evt_beg_ts\": \""+exchangemap.get("evt_beg_ts")+"\"," +
@@ -3331,4 +3334,7 @@ public class Util {
 		}
 		return flag;
 	}
+	
+	
+	
 }

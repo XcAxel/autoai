@@ -23,15 +23,15 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="E:/Code/JsonIterator/jar/com.springsource.org.apache.commons.lang-2.4.0.jar"/>
-	<classpathentry kind="lib" path="E:/Code/JsonIterator/jar/commons-beanutils-1.8.0.jar"/>
-	<classpathentry kind="lib" path="E:/Code/JsonIterator/jar/commons-codec-1.4.jar"/>
-	<classpathentry kind="lib" path="E:/Code/JsonIterator/jar/commons-collections-3.2.1.jar"/>
-	<classpathentry kind="lib" path="E:/Code/JsonIterator/jar/commons-httpclient-3.0.1.jar"/>
-	<classpathentry kind="lib" path="E:/Code/JsonIterator/jar/commons-lang-2.4.jar"/>
-	<classpathentry kind="lib" path="E:/Code/JsonIterator/jar/commons-lang-2.5.jar"/>
-	<classpathentry kind="lib" path="E:/Code/JsonIterator/jar/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="E:/Code/JsonIterator/jar/ezmorph-1.0.6.jar"/>
-	<classpathentry kind="lib" path="E:/Code/JsonIterator/jar/json-lib-2.4-jdk15.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/JsonIterator/jar/com.springsource.org.apache.commons.lang-2.4.0.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/JsonIterator/jar/commons-beanutils-1.8.0.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/JsonIterator/jar/commons-codec-1.4.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/JsonIterator/jar/commons-collections-3.2.1.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/JsonIterator/jar/commons-httpclient-3.0.1.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/JsonIterator/jar/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/JsonIterator/jar/commons-lang-2.5.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/JsonIterator/jar/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/JsonIterator/jar/ezmorph-1.0.6.jar"/>
+	<classpathentry kind="lib" path="/Users/xuechen/Desktop/Work/Code/JsonIterator/jar/json-lib-2.4-jdk15.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
